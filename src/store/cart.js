@@ -1,6 +1,6 @@
-import Img1 from '../assets/1.jpg'
-import Img2 from '../assets/2.jpg'
-import Img3 from '../assets/3.jpg'
+// import Img1 from '../assets/1.jpg'
+// import Img2 from '../assets/2.jpg'
+// import Img3 from '../assets/3.jpg'
 
 // function strRand () {
 //   let result = ''
@@ -19,7 +19,7 @@ export default {
       {
         id: 'prod1',
         titleProduct: 'Воздуховод спирально-навивной',
-        imageProduct: Img1,
+        // imageProduct: Img1,
         quantity: 5,
         productParams: [
           {
@@ -67,7 +67,7 @@ export default {
       {
         id: 'prod2',
         titleProduct: 'Дроссель-клапан',
-        imageProduct: Img2,
+        // imageProduct: Img2,
         quantity: 2,
         productParams: [
           {
@@ -124,7 +124,7 @@ export default {
       {
         id: 'prod3',
         titleProduct: 'Фланец №30',
-        imageProduct: Img3,
+        // imageProduct: Img3,
         quantity: 10,
         productParams: [
           {

@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>Карточки категорий</div>
 </template>
 
 <script>

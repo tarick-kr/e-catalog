@@ -1,69 +1,75 @@
 <template>
   <v-container>
-    <div class="pa-2 mb-4 white">
-      <div class="subtitle-1 font-weight-medium text-center">{{ product.titleProduct }}</div>
-      <v-container>
-        <form>
-          <v-layout row>
-            <v-flex sm5>
-              <v-img
-                class="mr-4 mt-7"
-                :src="product.imageProduct"
-                aspect-ratio="1"
-              />
-            </v-flex>
-            <v-flex sm7>
-              <div class="body-2 mb-3">
-                <input-param
-                  v-for="(field, index) in this.product.productParams"
-                  :key="index"
-                  :value="field.value"
-                  :minimValue="field.minimValue"
-                  :maximValue="field.maximValue"
-                  :name="field.name"
-                  :sym="field.sym"
-                  :unit="field.unit"
-                >
-                </input-param>
-                <v-divider />
-                <input-select />
-                <v-divider />
-                <input-quantity />
-              </div>
-              <v-card-actions>
-                <v-btn large block color="success">
-                  Добавить в заказ
-                </v-btn>
-              </v-card-actions>
-            </v-flex>
-          </v-layout>
-        </form>
-      </v-container>
-    </div>
+    <div>productDetail</div>
+    <add-product
+      :productId="productId"
+      :categoryId="categoryId"
+    />
   </v-container>
 </template>
 
 <script>
 
-import InputParam from '@/components/inputs/InputParam'
-import InputSelect from '@/components/inputs/InputSelect'
-import InputQuantity from '@/components/inputs/InputQuantity'
+import AddProduct from '../components/product/AddProduct'
 
 export default {
   name: 'productDetail',
   props: ['productId', 'categoryId'],
   components: {
-    InputParam,
-    InputSelect,
-    InputQuantity
-  },
-  computed: {
-    product () {
-      const categoryId = this.categoryId
-      const productId = this.productId
-      return this.$store.getters.getProductById(categoryId, productId)
-    }
+    AddProduct
   }
+  // data () {
+  //   return {
+  // productSelectParams: []
+  //   }
+  // },
+  // mounted () {
+  // if (this.isSelectParams) {
+  //   this.initSelectField()
+  // }
+  // }
+  // methods: {
+  // initSelectField () {
+  //   let productSelectParams = []
+  //   for (let i = 0; i < this.product.productSelectParams.length; i++) {
+  //     let type = this.$store.getters.getSelectFieldByType(this.product.productSelectParams[i])
+  //     productSelectParams.push(type)
+  //   }
+  //   this.productSelectParams = productSelectParams
+  // },
+  // updateParam (payload) {
+  // this.$set(payload.product, payload.prop, payload.newValue)
+  // this.editedParamValid[payload.index] = payload.valid
+  // let editedParamCount = 0
+  // for (let i = 0; i < this.editedParamValid.length; i++) {
+  //   if (this.editedParamValid[i]) {
+  //     editedParamCount++
+  //   }
+  // }
+  // this.editedParamCount = editedParamCount
+  // },
+  // updateQuantity (payload) {
+  // this.editedQuantity = Number(payload.newValue)
+  // this.editedQuantityValid = payload.valid
+  // },
+  // updateSelect (payload) {
+  // for (let i = 0; i < this.editedSelectParams.length; i++) {
+  //   if (i === payload.index) {
+  //     this.editedSelectParams[i].value = payload.newValue
+  //   }
+  // }
+  // }
+  // },
+  // computed: {
+  // product () {
+  //   const categoryId = this.categoryId
+  //   const productId = this.productId
+  //   return this.$store.getters.getProductById(categoryId, productId)
+  // },
+  // isSelectParams () {
+  //   return this.product.productSelectParams.length !== 0
+  // }
+  // }
 }
 </script>
 
