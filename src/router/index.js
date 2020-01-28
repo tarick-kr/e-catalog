@@ -39,6 +39,12 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/ProductDetail.vue')
   },
   {
+    path: '/catalog/products-in-category/:id',
+    props: true,
+    name: 'productsInCategory',
+    component: () => import(/* webpackChunkName: "about" */ '../views/ProductsInCategory.vue')
+  },
+  {
     path: '/cart/product-detail/:id',
     props: true,
     name: 'productInCartDetail',

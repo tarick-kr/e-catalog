@@ -4,7 +4,14 @@
 
 <script>
 export default {
-  name: 'CardsProductsInCategory'
+  name: 'CardsProductsInCategory',
+  props: ['categoryId'],
+  computed: {
+    cardsProductsInCategory () {
+      const categoryId = this.categoryId
+      return this.$store.getters.getCardsProductsByCategoryId(categoryId)
+    }
+  }
 }
 </script>
 

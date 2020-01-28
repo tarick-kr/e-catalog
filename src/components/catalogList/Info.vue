@@ -39,7 +39,6 @@ export default {
     return {
     }
   },
-
   computed: {
     ...mapGetters([
       'getCatalogInfo'

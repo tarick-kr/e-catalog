@@ -13,7 +13,7 @@
           tag="li"
           :to="{
             name: 'productDetail',
-            params: {id: item.productId, productId: item.productId, categoryId: categoryId }
+            params: { id: item.productId, productId: item.productId, categoryId: categoryId }
           }"
         >
           <v-list-item-title>
