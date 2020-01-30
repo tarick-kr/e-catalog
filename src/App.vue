@@ -32,7 +32,7 @@
         </v-list>
       </v-navigation-drawer>
       <v-app-bar app color="primary" dark>
-        <router-link to="/" tag="span" style="cursor:pointer">
+        <router-link to="/home" tag="span" style="cursor:pointer">
           <v-toolbar-title>
             <div class="site-name-wrapper">
               <span class="site-name-title">TOP КЛИМАТ</span>
@@ -46,7 +46,7 @@
         <v-spacer />
         <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up"/>
         <v-toolbar-items class="hidden-xs-only">
-          <v-btn text to="/">
+          <v-btn text to="/home">
             <div class="btn-wrapper" >
               <v-icon size="30" class="ma-1">mdi-home</v-icon>
               <span class="top-bar_item--title">Главная</span>
@@ -83,7 +83,6 @@
 
 export default {
   name: 'App',
-  components: { },
   data: () => ({
     drawer: false
   })

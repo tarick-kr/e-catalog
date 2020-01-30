@@ -2,10 +2,10 @@
   <v-container>
     <v-row>
       <v-col cols="12" sm="6" md="4" lg="3" xl="2"
-         v-for="category in displayCategory"
+         v-for="category in cardsCategories"
          :key="category.IdCategory"
       >
-        <cards-categories :category="category"/>
+        <card-category :category="category"/>
       </v-col>
     </v-row>
   </v-container>
@@ -13,7 +13,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import CardsCategories from './CardsCategories'
+import CardCategory from './CardCategory'
 
 export default {
   name: 'CatalogCards',
@@ -24,17 +24,17 @@ export default {
     }
   },
   components: {
-    CardsCategories
+    CardCategory
   },
   data () {
     return {
-      displayCategory: []
+      cardsCategories: []
     }
   },
   mounted () {
     for (let i = 0; i < this.listCategories.length; i++) {
       let infoCategory = this.getInfoCategoryByCategoryId(this.listCategories[i].categoryId)
-      this.displayCategory.push({
+      this.cardsCategories.push({
         IdCategory: this.listCategories[i].categoryId,
         titleCategory: infoCategory.titleCategory,
         imageCategory: infoCategory.imageCategory,
@@ -51,6 +51,5 @@ export default {
 </script>
 
 <style scoped lang="sass">
-.v-card__title
-  height: 95px
+
 </style>

@@ -1,19 +1,25 @@
 <template>
   <v-container class="catalog">
     <v-row>
-      <v-col cols="12" class="pt-0">
-        <v-btn-toggle
-          v-model="viewCards"
-          mandatory
-          class="d-flex justify-end"
-        >
-          <v-btn small @click="onClick">
+      <v-col cols="12" class="pt-0 text-end">
+          <v-btn
+            tile
+            text
+            small
+            @click="onClickViewCatalog"
+            :class="!this.viewCard ? 'v-btn--active' : ''"
+          >
             <v-icon size="16">mdi-view-sequential</v-icon>
           </v-btn>
-          <v-btn small @click="onClick">
+          <v-btn
+            tile
+            text
+            small
+            @click="onClickViewCatalog"
+            :class="this.viewCard ? 'v-btn--active' : ''"
+          >
             <v-icon size="16">mdi-view-grid</v-icon>
           </v-btn>
-        </v-btn-toggle>
       </v-col>
     </v-row>
     <v-divider class="mb-2"/>
@@ -22,38 +28,54 @@
         <h1 class="headline font-weight-bold">Каталог изделий</h1>
       </v-col>
     </v-row>
-    <catalog-cards :listCategories="getListCategories" v-if="this.viewCards"/>
+    <catalog-cards :listCategories="getListCategories" v-if="this.viewCard"/>
     <catalog-list :listCategories="getListCategories" v-else/>
   </v-container>
 </template>
 
 <script>
-// @ is an alias to /src
-import CatalogList from '@/components/catalogList/CatalogList.vue'
-import CatalogCards from '@/components/catalogCards/CatalogCards.vue'
 import { mapGetters } from 'vuex'
+import CatalogCards from '@/components/catalogCards/CatalogCards.vue'
+import CatalogList from '@/components/catalogList/CatalogList.vue'
 
 export default {
-  name: 'catalog',
+  name: 'Catalog',
+  components: {
+    CatalogCards,
+    CatalogList
+  },
   data () {
     return {
-      viewCards: false,
-      toggle_exclusive: undefined
-    }
-  },
-  components: {
-    CatalogList,
-    CatalogCards
-  },
-  methods: {
-    onClick () {
-      this.viewCards = !this.viewCards
+      viewCard: 0
     }
   },
   computed: {
     ...mapGetters([
-      'getListCategories'
+      'getListCategories',
+      'getViewType'
     ])
+  },
+  watch: {
+    'getViewType': {
+      handler (val) {
+        this.viewCard = val
+      }
+    }
+  },
+  mounted () {
+    this.viewCard = this.getViewType
+  },
+  methods: {
+    onClickViewCatalog () {
+      this.$store.dispatch('TOGGLE_VIEW_TYPE_CATALOG')
+    }
   }
 }
+
 </script>
+
+<style scoped lang="sass">
+  .v-btn--active
+    color: #1976D2
+
+</style>

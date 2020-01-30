@@ -3,7 +3,12 @@
     height="100%"
     :to="{
       name: 'productsInCategory',
-      params: { id: this.category.IdCategory, categoryId: this.category.IdCategory }
+      params: {
+        id: this.category.IdCategory,
+        categoryId: this.category.IdCategory,
+        titleCategory: this.category.titleCategory,
+        descriptionCategory: this.category.descriptionCategory
+      }
     }">
     <v-card-title class="subtitle-1 font-weight-bold justify-center text-center" style="word-break: break-word">{{ category.titleCategory }}</v-card-title>
     <v-img
@@ -27,6 +32,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="sass">
+.v-card__title
+  height: 95px
 
 </style>
