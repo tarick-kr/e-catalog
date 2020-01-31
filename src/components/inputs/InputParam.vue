@@ -17,16 +17,9 @@ export default {
       label: '',
       hint: '',
       patternValidParam: /^-?\d*\.?\d+$/
-      // hintDiv: ''
     }
   },
   props: {
-    // productId: {
-    //   type: String
-    // },
-    // categoryId: {
-    //   type: String
-    // },
     data: {
       type: [Object, Number],
       required: true
@@ -39,7 +32,6 @@ export default {
   mounted () {
     this.label = this.data.name + ' ' + this.data.sym + ',' + ' ' + this.data.unit
     this.hint = 'от ' + this.data.minimValue + this.data.unit + ' до ' + this.data.maximValue + this.data.unit
-    // this.hintDiv = this.$el.getElementsByClassName('v-messages theme--light')[0]
   },
   methods: {
     onChangeValue (e) {

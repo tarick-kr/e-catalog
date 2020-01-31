@@ -1,12 +1,12 @@
 <template>
   <v-text-field
     :label="this.label"
-    :hint="this.hint"
+    :hint="this.hintText"
     persistent-hint
     required
     :value="this.data"
-    @input="onChangeValue($event)"
-    :error="!validValue"
+    @input ="onChangeValue($event)"
+    :error="this.activated && !this.validValue"
   />
 </template>
 
@@ -17,41 +17,61 @@ export default {
     return {
       label: '',
       hint: '',
-      maxQuantity: 100,
-      patternValidQuantity: /^(?:[1-9]\d*|\d)$/,
-      hintDiv: ''
+      patternValidQuantity: /^(?:[1-9]\d*|\d)$/
+      // hintDiv: ''
     }
   },
   props: {
     data: {
-      type: [Object, Number],
+      type: [Number, String],
+      required: false
+    },
+    activated: {
+      type: Boolean,
       required: true
     }
   },
   mounted () {
-    this.label = 'Колличество, шт'
-    this.hint = 'максимум ' + this.maxQuantity + ' шт'
-    this.hintDiv = this.$el.getElementsByClassName('v-messages theme--light')[0]
-    console.log(this.$el)
+    this.label = 'Количество, шт'
+    // this.hintDiv = this.$el.getElementsByClassName('v-messages theme--light')[0]
+    // console.log(this.hintDiv)
   },
   methods: {
     onChangeValue (e) {
-      this.$emit('onUpdate', {
-        newValue: e,
-        valid: this.patternValidQuantity.test(String(e)) && String(e) > 0 && String(e) <= this.maxQuantity
-      })
+      if (!this.activated) {
+        this.$emit('onUpdate', {
+          activated: true,
+          newValue: e,
+          valid: this.patternValidQuantity.test(String(e)) && e > 0
+        })
+      } else {
+        this.$emit('onUpdate', {
+          newValue: e,
+          valid: this.patternValidQuantity.test(String(e)) && e > 0
+        })
+      }
     }
   },
   computed: {
     validValue () {
-      if (this.patternValidQuantity.test(String(this.data)) && String(this.data) > 0 && String(this.data) <= this.maxQuantity) {
-        if (this.hintDiv !== '') {
-          this.hintDiv.classList.remove('error--text')
-        }
-        return true
+      return this.patternValidQuantity.test(String(this.data)) && this.data > 0
+      // if (this.patternValidQuantity.test(String(this.data)) && this.data > 0) {
+      //   if (this.hintDiv.classList.contains('error--text')) {
+      //     this.hintDiv.classList.remove('error--text')
+      //   }
+      //   return true
+      // } else {
+      //   this.hintDiv.classList.add('error--text')
+      //   return false
+      // }
+    },
+    hintText () {
+      if ((this.activated && this.data === 0) || (this.activated && this.data < 0)) {
+        return 'количество не может быть меньше 1'
+      } else if (this.activated && this.data === '') {
+        return 'поле не может быть пустым'
       } else {
-        this.hintDiv.classList.add('error--text')
-        return false
+        return ''
       }
     }
   }

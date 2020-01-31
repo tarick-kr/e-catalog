@@ -37,16 +37,9 @@ export default {
   components: { AddProduct },
   props: {
     categoryId: {
-      type: [String],
+      type: String,
       required: true
     }
-  },
-  data () {
-    return {
-
-    }
-  },
-  methods: {
   },
   computed: {
     listProductsInCategory () {

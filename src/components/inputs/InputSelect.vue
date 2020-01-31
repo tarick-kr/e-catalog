@@ -1,10 +1,9 @@
 <template>
   <v-select
     :label="this.label"
-    :value="this.data.value"
+    :value="this.changeSelectField.value"
     required
     :items="this.changeSelectField.arraySelectItems"
-    @input="onChangeValue($event)"
   />
 </template>
 
@@ -18,20 +17,16 @@ export default {
   },
   props: {
     data: {
-      type: [Object, Number],
+      type: String,
       required: true
     },
     index: {
-      type: [Number],
-      required: true
-    },
-    selectType: {
-      type: [Number],
+      type: Number,
       required: true
     }
   },
   mounted () {
-    this.label = this.data.sym ? this.data.name + ' ' + this.data.sym + ', ' + this.data.unit : this.data.name
+    this.label = this.changeSelectField.sym ? this.changeSelectField.name + ' ' + this.changeSelectField.sym + ', ' + this.changeSelectField.unit : this.changeSelectField.name
   },
   methods: {
     onChangeValue (e) {
@@ -43,7 +38,7 @@ export default {
   },
   computed: {
     changeSelectField () {
-      const type = this.data.type
+      const type = this.data
       return this.$store.getters.getSelectFieldByType(type)
     }
   }

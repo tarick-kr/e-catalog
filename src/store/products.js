@@ -2336,38 +2336,38 @@ export default {
         idSelectField: 'field-type1',
         type: 'Type1',
         name: 'Толщина металла',
-        sym: 's',
+        sym: 't',
         unit: 'мм',
         arraySelectItems: ['0.5', '0.55', '0.6', '0.7', '1.0'],
-        default: '0.5'
+        value: '0.5'
       },
       {
         idSelectField: 'field-type2',
         type: 'Type2',
         name: 'Тип металла',
         arraySelectItems: ['Оц. сталь', 'Нерж. сталь'],
-        default: 'Оц. сталь'
+        value: 'Оц. сталь'
       },
       {
         idSelectField: 'field-type3',
         type: 'Type3',
         name: 'Тип соединения',
         arraySelectItems: ['Фланец №20', 'Фланец №30', 'Нет'],
-        default: 'Фланец №20'
+        value: 'Фланец №20'
       },
       {
         idSelectField: 'field-type4',
         type: 'Type4',
         name: 'Тип соединения',
         arraySelectItems: ['Фланец №20', 'Фланец №30', 'Нет'],
-        default: 'Нет'
+        value: 'Нет'
       },
       {
         idSelectField: 'field-type5',
         type: 'Type5',
         name: 'Наличие кожуха',
         arraySelectItems: ['Да', 'Нет'],
-        default: 'Нет'
+        value: 'Нет'
       }
     ]
   },
@@ -2376,9 +2376,7 @@ export default {
     getCatalogInfo: (state) => state.catalog,
     getSelectFieldByType: (state) => {
       return selectType => {
-        return (
-          state.selectFields.find(selectField => selectField.type === selectType)
-        )
+        return state.selectFields.find(selectField => selectField.type === selectType)
       }
     },
     getListCategories: (state) => {
@@ -2432,11 +2430,11 @@ export default {
         }
         return productsCards
       }
+    },
+    getProductByCategoryIdAndProductId: (state) => {
+      return (categoryId, productId) => {
+        return state.products.find(category => category.id === categoryId).products.find(product => product.id === productId)
+      }
     }
-    // getProductById: (state) => {
-    //   return (categoryId, productId) => {
-    //     return state.products.find(category => category.id === categoryId).products.find(product => product.id === productId)
-    //   }
-    // }
   }
 }
