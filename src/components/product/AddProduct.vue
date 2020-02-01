@@ -10,12 +10,12 @@
     </template>
     <v-card>
       <v-card-title class="text-center background-card-title px-1 px-sm-2 px-md-4 mb-4 py-2">
-        <span class="title font-weight-bold mx-auto white--text">{{ this.title }}</span>
+        <span class="title font-weight-bold mx-auto white--text">{{ this.addedProductTitle }}</span>
       </v-card-title>
       <v-container>
         <v-row justify="center">
           <v-col cols="6" sm="3"
-            v-for="(srcImg, index) in this.images"
+            v-for="(srcImg, index) in this.addedProductImages"
             :key="index"
           >
             <v-img
@@ -41,6 +41,7 @@
                 :index="index"
                 :data="addedProductParam"
                 @onUpdate="updateParam($event)"
+                @onActivate="activateParam($event)"
               />
             </v-col>
           </v-row>
@@ -48,15 +49,16 @@
         <div class="text-center px-1 px-sm-2 px-md-4">
           <v-divider class="divider-width-align"/>
         </div>
-        <v-container>
+        <v-container v-if="this.isSelectFields">
           <v-row>
             <v-col
               cols="12" sm="4"
-              v-for="(type, index) in this.addedProductSelectParams"
+              v-for="(itemSelect, index) in this.addedProductSelectParams"
               :key="index">
               <input-select
-                :data="type"
+                :data="itemSelect"
                 :index="index"
+                @onUpdate="updateSelect($event)"
               />
             </v-col>
           </v-row>
@@ -120,17 +122,23 @@ export default {
   data () {
     return {
       dialog: false,
+      addedProductId: '',
+      addedProductTitle: '',
+      addedShortTitle: '',
+      addedProductImage: '',
+      addedProductImages: [],
+      addedProductDescription: '',
+      addedShortDescriptionType: '',
+
       addedProductParams: [],
       addedProductParamValid: [],
       addedProductParamCount: 0,
+
       addedProductSelectParams: [],
+
       addedProductQuantity: '',
       addedProductQuantityValid: true,
-      addedProductQuantityActivated: false,
-      title: '',
-      images: [],
-      image: '',
-      id: ''
+      addedProductQuantityActivated: false
     }
   },
   components: {
@@ -142,19 +150,6 @@ export default {
     this.initValue()
   },
   methods: {
-    initValue () {
-      for (let i = 0; i < this.product.productParams.length; i++) {
-        let itemObj = this.product.productParams[i]
-        let itemObjNew = Object.assign({}, itemObj)
-        itemObjNew.value = ''
-        this.addedProductParams.push(itemObjNew)
-      }
-      this.addedProductSelectParams = this.product.productSelectParams
-      this.title = this.product.titleProduct
-      this.images = this.product.imageAndSchemesProduct
-      this.image = this.product.imageProduct
-      this.id = this.product.id
-    },
     strRand () {
       let result = ''
       let words = '0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'
@@ -165,16 +160,53 @@ export default {
       }
       return result
     },
+    initValue () {
+      this.addedProductId = this.strRand()
+      this.addedProductTitle = this.product.titleProduct
+      this.shortTitle = this.product.shortTitle
+      this.addedProductImage = this.product.imageProduct
+      this.addedProductImages = this.product.imageAndSchemesProduct
+      this.addedProductDescription = this.product.description
+      this.addedShortDescriptionType = this.product.shortDescriptionType
+
+      for (let i = 0; i < this.product.productParams.length; i++) {
+        let itemObj = this.product.productParams[i]
+        let itemObjNew = Object.assign({}, itemObj)
+        itemObjNew.value = ''
+        itemObjNew.activated = false
+        this.addedProductParams.push(itemObjNew)
+      }
+      for (let i = 0; i < this.product.productParams.length; i++) {
+        this.addedProductParamValid.push(true)
+      }
+
+      for (let i = 0; i < this.product.productSelectParams.length; i++) {
+        let itemSelectObj = this.getSelectFieldByType(this.product.productSelectParams[i])
+        let itemSelectObjNew = Object.assign({}, itemSelectObj)
+        this.addedProductSelectParams.push(itemSelectObjNew)
+      }
+    },
+    activateParam (payload) {
+      this.$set(payload.productParam, payload.prop, payload.newValue)
+    },
     updateParam (payload) {
-      // this.$set(payload.product, payload.prop, payload.newValue)
-      // this.editedParamValid[payload.index] = payload.valid
-      // let editedParamCount = 0
-      // for (let i = 0; i < this.editedParamValid.length; i++) {
-      //   if (this.editedParamValid[i]) {
-      //     editedParamCount++
-      //   }
-      // }
-      // this.editedParamCount = editedParamCount
+      if (isNaN(payload.newValue)) {
+        let newValue = ''
+        this.$set(payload.productParam, payload.prop, newValue)
+      } else {
+        this.$set(payload.productParam, payload.prop, payload.newValue)
+      }
+      this.addedProductParamValid[payload.index] = payload.valid
+      let addedProductParamCount = 0
+      for (let i = 0; i < this.addedProductParamValid.length; i++) {
+        if (this.addedProductParamValid[i]) {
+          addedProductParamCount++
+        }
+      }
+      this.addedProductParamCount = addedProductParamCount
+    },
+    updateSelect (payload) {
+      this.$set(payload.productSelect, payload.prop, payload.newValue)
     },
     updateQuantity (payload) {
       if (payload.newValue === '' || isNaN(payload.newValue)) {
@@ -188,29 +220,49 @@ export default {
       this.addedProductQuantityValid = payload.valid
     },
     onCancel () {
-      this.dialog = false
-      this.addedProductQuantityActivated = false
+      this.addedProductParams = []
+      this.addedProductSelectParams = []
       this.addedProductQuantity = ''
+      this.addedProductQuantityActivated = false
+      this.initValue()
+      this.dialog = false
     },
     addToCart () {
-      let id = this.strRand()
+      const randomId = this.strRand()
       const product = {
-        id: id,
-        titleProduct: this.title,
-        imageProduct: this.image,
+        id: randomId,
+        titleProduct: this.addedProductTitle,
+        shortTitle: this.addedShortTitle,
+        imageProduct: this.addedProductImage,
+        imagesProduct: this.addedProductImages,
+        descriptionProduct: this.addedProductDescription,
+        shortDescriptionType: this.addedShortDescriptionType,
+        productParams: this.addedProductParams,
+        productSelectParams: this.addedProductSelectParams,
         quantity: this.addedProductQuantity
       }
       this.$store.dispatch('ADD_PRODUCT_TO_CART', product)
+
+      this.addedProductParams = []
+      this.addedProductSelectParams = []
+      this.addedProductQuantity = ''
+      this.addedProductQuantityActivated = false
+      this.initValue()
+      this.dialog = false
     }
   },
   computed: {
     ...mapGetters([
-      'getViewType'
+      'getViewType',
+      'getSelectFieldByType'
     ]),
     product () {
       const categoryId = this.categoryId
       const productId = this.productId
       return this.$store.getters.getProductByCategoryIdAndProductId(categoryId, productId)
+    },
+    isSelectFields () {
+      return this.addedProductSelectParams.length !== 0
     }
   }
 }

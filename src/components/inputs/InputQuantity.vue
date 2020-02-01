@@ -16,7 +16,7 @@ export default {
   data () {
     return {
       label: '',
-      hint: '',
+      // hint: '',
       patternValidQuantity: /^(?:[1-9]\d*|\d)$/
       // hintDiv: ''
     }
@@ -55,15 +55,6 @@ export default {
   computed: {
     validValue () {
       return this.patternValidQuantity.test(String(this.data)) && this.data > 0
-      // if (this.patternValidQuantity.test(String(this.data)) && this.data > 0) {
-      //   if (this.hintDiv.classList.contains('error--text')) {
-      //     this.hintDiv.classList.remove('error--text')
-      //   }
-      //   return true
-      // } else {
-      //   this.hintDiv.classList.add('error--text')
-      //   return false
-      // }
     },
     hintText () {
       if ((this.activated && this.data === 0) || (this.activated && this.data < 0)) {
