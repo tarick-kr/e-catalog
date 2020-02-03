@@ -186,7 +186,7 @@ export default {
                 sym: 'L',
                 unit: 'м',
                 minimValue: 0.5,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod1-cat1',
@@ -194,7 +194,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4', 'Type5']
@@ -214,7 +214,7 @@ export default {
                 sym: 'L',
                 unit: 'м',
                 minimValue: 0.5,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod2-cat1',
@@ -222,7 +222,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4', 'Type5']
@@ -242,7 +242,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4']
@@ -262,7 +262,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4', 'Type5']
@@ -282,7 +282,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4']
@@ -302,7 +302,7 @@ export default {
                 sym: 'd1',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod6-cat1',
@@ -310,7 +310,7 @@ export default {
                 sym: 'd2',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4']
@@ -330,7 +330,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4']
@@ -350,7 +350,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4']
@@ -370,7 +370,7 @@ export default {
                 sym: 'd1',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod8-cat1',
@@ -378,7 +378,7 @@ export default {
                 sym: 'd2',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4', 'Type5']
@@ -398,7 +398,7 @@ export default {
                 sym: 'd1',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod9-cat1',
@@ -406,7 +406,7 @@ export default {
                 sym: 'd2',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4', 'Type5']
@@ -426,7 +426,7 @@ export default {
                 sym: 'd1',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod9-cat1',
@@ -434,15 +434,15 @@ export default {
                 sym: 'd2',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod9-cat1',
                 name: 'Смещение',
                 sym: 'f',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4', 'Type5']
@@ -462,7 +462,7 @@ export default {
                 sym: 'D',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod10-cat1',
@@ -470,7 +470,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4', 'Type5']
@@ -490,7 +490,7 @@ export default {
                 sym: 'D',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod11-cat1',
@@ -498,7 +498,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4', 'Type5']
@@ -518,7 +518,7 @@ export default {
                 sym: 'D',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod12-cat1',
@@ -526,7 +526,7 @@ export default {
                 sym: 'd1',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod12-cat1',
@@ -534,7 +534,7 @@ export default {
                 sym: 'd2',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4', 'Type5']
@@ -554,7 +554,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4', 'Type5']
@@ -574,7 +574,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4', 'Type5']
@@ -594,7 +594,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4', 'Type5']
@@ -614,7 +614,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4', 'Type5']
@@ -634,7 +634,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4', 'Type5']
@@ -654,15 +654,15 @@ export default {
                 sym: 'D',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod20-cat1',
                 name: 'Длина тройника',
                 sym: 'L',
                 unit: 'мм',
-                minimValue: 500,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod20-cat1',
@@ -670,7 +670,7 @@ export default {
                 sym: 'd1',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param4-prod20-cat1',
@@ -678,7 +678,7 @@ export default {
                 sym: 'd2',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4', 'Type5']
@@ -698,7 +698,7 @@ export default {
                 sym: 'D1',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param7-prod21-cat1',
@@ -706,7 +706,7 @@ export default {
                 sym: 'D2',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod21-cat1',
@@ -714,7 +714,7 @@ export default {
                 sym: 'L',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod21-cat1',
@@ -722,7 +722,7 @@ export default {
                 sym: 'd1',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param4-prod21-cat1',
@@ -730,23 +730,23 @@ export default {
                 sym: 'd2',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param5-prod21-cat1',
                 name: 'Расстояние до врезки 1',
                 sym: 'f1',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               },
               {
                 id: 'param6-prod21-cat1',
                 name: 'Расстояние до врезки 2',
                 sym: 'f2',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4', 'Type5']
@@ -766,7 +766,7 @@ export default {
                 sym: 'd1',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod22-cat1',
@@ -774,23 +774,23 @@ export default {
                 sym: 'd2',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod22-cat1',
                 name: 'Длина',
                 sym: 'L',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               },
               {
                 id: 'param4-prod22-cat1',
                 name: 'Высота смещения',
                 sym: 'h',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4', 'Type5']
@@ -810,7 +810,7 @@ export default {
                 sym: 'd1',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod23-cat1',
@@ -818,31 +818,31 @@ export default {
                 sym: 'd2',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod23-cat1',
                 name: 'Длина',
                 sym: 'L',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               },
               {
                 id: 'param4-prod23-cat1',
                 name: 'Высота смещения',
                 sym: 'h',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               },
               {
                 id: 'param5-prod23-cat1',
                 name: 'Осевое смещение',
                 sym: 'f',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4', 'Type5']
@@ -862,7 +862,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: []
@@ -891,7 +891,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4']
@@ -911,7 +911,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4']
@@ -931,7 +931,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4']
@@ -951,7 +951,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4']
@@ -971,7 +971,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4']
@@ -991,15 +991,15 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod6-cat2',
                 name: 'Длина',
                 sym: 'l',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4']
@@ -1019,7 +1019,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type4']
@@ -1048,7 +1048,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod1-cat3',
@@ -1056,7 +1056,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod1-cat3',
@@ -1064,7 +1064,7 @@ export default {
                 sym: 'L',
                 unit: 'м',
                 minimValue: 0.1,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -1084,7 +1084,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod2-cat3',
@@ -1092,7 +1092,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod2-cat3',
@@ -1100,7 +1100,7 @@ export default {
                 sym: 'c',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param4-prod2-cat3',
@@ -1108,7 +1108,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -1128,7 +1128,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod18-cat3',
@@ -1136,7 +1136,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod18-cat3',
@@ -1144,7 +1144,7 @@ export default {
                 sym: 'c',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param4-prod18-cat3',
@@ -1152,7 +1152,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -1172,7 +1172,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod19-cat3',
@@ -1180,7 +1180,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod19-cat3',
@@ -1188,7 +1188,7 @@ export default {
                 sym: 'c',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param4-prod19-cat3',
@@ -1196,23 +1196,23 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param6-prod19-cat3',
                 name: 'Смещение',
                 sym: 'f',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               },
               {
                 id: 'param7-prod19-cat3',
                 name: 'Смещение',
                 sym: 'e',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -1232,7 +1232,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod3-cat3',
@@ -1240,7 +1240,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod3-cat3',
@@ -1248,7 +1248,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -1268,7 +1268,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod20-cat3',
@@ -1276,7 +1276,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod20-cat3',
@@ -1284,7 +1284,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -1304,7 +1304,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod21-cat3',
@@ -1312,7 +1312,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod21-cat3',
@@ -1320,23 +1320,23 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param4-prod21-cat3',
                 name: 'Смещение',
                 sym: 'f',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               },
               {
                 id: 'param5-prod21-cat3',
                 name: 'Смещение',
                 sym: 'e',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -1356,8 +1356,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 3000,
-                default: 500
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod5-cat3',
@@ -1365,8 +1364,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 3000,
-                default: 500
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod5-cat3',
@@ -1374,8 +1372,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 3000,
-                default: 500
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -1395,7 +1392,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod4-cat3',
@@ -1403,7 +1400,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod4-cat3',
@@ -1411,7 +1408,7 @@ export default {
                 sym: 'c',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param4-prod4-cat3',
@@ -1419,7 +1416,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -1439,7 +1436,7 @@ export default {
                 sym: 'a1',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod6-cat3',
@@ -1447,7 +1444,7 @@ export default {
                 sym: 'a2',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod6-cat3',
@@ -1455,7 +1452,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param4-prod6-cat3',
@@ -1463,7 +1460,7 @@ export default {
                 sym: 'c',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -1483,7 +1480,7 @@ export default {
                 sym: 'a1',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod7-cat3',
@@ -1491,7 +1488,7 @@ export default {
                 sym: 'a2',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod7-cat3',
@@ -1499,7 +1496,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param4-prod7-cat3',
@@ -1507,15 +1504,15 @@ export default {
                 sym: 'c',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param5-prod7-cat3',
                 name: 'Длина тройника',
                 sym: 'L',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -1535,7 +1532,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod8-cat3',
@@ -1543,7 +1540,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod8-cat3',
@@ -1551,7 +1548,7 @@ export default {
                 sym: 'a1',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param4-prod8-cat3',
@@ -1559,7 +1556,7 @@ export default {
                 sym: 'b1',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param5-prod8-cat3',
@@ -1567,7 +1564,7 @@ export default {
                 sym: 'a2',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param6-prod8-cat3',
@@ -1575,47 +1572,47 @@ export default {
                 sym: 'b2',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param7-prod8-cat3',
                 name: 'Расстояние до врезки 1',
                 sym: 'x1',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               },
               {
                 id: 'param8-prod8-cat3',
                 name: 'Расстояние до врезки 1',
                 sym: 'z1',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               },
               {
                 id: 'param9-prod8-cat3',
                 name: 'Расстояние до врезки 2',
                 sym: 'x2',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               },
               {
                 id: 'param10-prod8-cat3',
                 name: 'Расстояние до врезки 2',
                 sym: 'z2',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               },
               {
                 id: 'param11-prod8-cat3',
                 name: 'Длина крестовины',
                 sym: 'L',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -1635,7 +1632,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod22-cat3',
@@ -1643,7 +1640,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod22-cat3',
@@ -1651,7 +1648,7 @@ export default {
                 sym: 'd1',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param4-prod22-cat3',
@@ -1659,47 +1656,47 @@ export default {
                 sym: 'd2',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param5-prod22-cat3',
                 name: 'Расстояние до врезки 1',
                 sym: 'x1',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               },
               {
                 id: 'param6-prod22-cat3',
                 name: 'Расстояние до врезки 1',
                 sym: 'z1',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               },
               {
                 id: 'param7-prod22-cat3',
                 name: 'Расстояние до врезки 2',
                 sym: 'x2',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               },
               {
                 id: 'param8-prod22-cat3',
                 name: 'Расстояние до врезки 2',
                 sym: 'z2',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               },
               {
                 id: 'param9-prod22-cat3',
                 name: 'Длина крестовины',
                 sym: 'L',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -1719,7 +1716,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod13-cat3',
@@ -1727,7 +1724,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -1747,7 +1744,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod11-cat3',
@@ -1755,7 +1752,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -1775,7 +1772,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod10-cat3',
@@ -1783,7 +1780,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -1803,7 +1800,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod12-cat3',
@@ -1811,7 +1808,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -1831,7 +1828,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod9-cat3',
@@ -1839,7 +1836,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -1859,7 +1856,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod14-cat3',
@@ -1867,7 +1864,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -1887,7 +1884,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod15-cat3',
@@ -1895,7 +1892,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3']
@@ -1915,7 +1912,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod16-cat3',
@@ -1923,7 +1920,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod16-cat3',
@@ -1931,7 +1928,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3']
@@ -1951,7 +1948,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod17-cat3',
@@ -1959,7 +1956,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod17-cat3',
@@ -1967,7 +1964,7 @@ export default {
                 sym: 'd',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param4-prod17-cat3',
@@ -1975,7 +1972,7 @@ export default {
                 sym: 'h',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -1995,7 +1992,7 @@ export default {
                 sym: 'a1',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod23-cat3',
@@ -2003,7 +2000,7 @@ export default {
                 sym: 'a2',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod23-cat3',
@@ -2011,23 +2008,23 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param4-prod23-cat3',
                 name: 'Высота смещения',
                 sym: 'h',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               },
               {
                 id: 'param5-prod23-cat3',
                 name: 'Длина',
                 sym: 'L',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -2047,7 +2044,7 @@ export default {
                 sym: 'a1',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod24-cat3',
@@ -2055,7 +2052,7 @@ export default {
                 sym: 'a2',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod24-cat3',
@@ -2063,31 +2060,31 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param4-prod24-cat3',
                 name: 'Высота смещения',
                 sym: 'h',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               },
               {
                 id: 'param5-prod24-cat3',
                 name: 'Осевое смещение',
                 sym: 'f',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               },
               {
                 id: 'param6-prod24-cat3',
                 name: 'Длина',
                 sym: 'L',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -2116,7 +2113,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod1-cat4',
@@ -2124,15 +2121,15 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod1-cat4',
                 name: 'Длина',
                 sym: 'L',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
@@ -2152,7 +2149,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod2-cat4',
@@ -2160,7 +2157,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3']
@@ -2180,7 +2177,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod3-cat4',
@@ -2188,15 +2185,15 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param3-prod3-cat4',
                 name: 'Длина',
                 sym: 'L',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               }
             ],
             productSelectParams: ['Type1', 'Type2', 'Type3']
@@ -2224,8 +2221,8 @@ export default {
                 name: 'Длина',
                 sym: 'l',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               }
             ],
             productSelectParams: []
@@ -2244,8 +2241,8 @@ export default {
                 name: 'Длина',
                 sym: 'l',
                 unit: 'мм',
-                minimValue: 0,
-                maximValue: 0
+                minimValue: 'none',
+                maximValue: 'none'
               }
             ],
             productSelectParams: []
@@ -2265,7 +2262,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod3-cat5',
@@ -2273,7 +2270,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: []
@@ -2293,7 +2290,7 @@ export default {
                 sym: 'a',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               },
               {
                 id: 'param2-prod4-cat5',
@@ -2301,7 +2298,7 @@ export default {
                 sym: 'b',
                 unit: 'мм',
                 minimValue: 100,
-                maximValue: 0
+                maximValue: 'none'
               }
             ],
             productSelectParams: []

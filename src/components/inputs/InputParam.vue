@@ -1,27 +1,30 @@
 <template>
   <v-text-field
-    :label="this.label"
-    :hint="this.hintText"
-    persistent-hint
-    required
     :value="this.data.value"
-    @input="onChangeValue($event)"
-    @click="onActive"
-    :error="this.validValue"
+    :hint="this.hintText"
+    :label="this.label"
+    required
+    v-model="paramValue"
+    @input="$v.paramValue.$touch()"
+    @blur="$v.paramValue.$touch()"
+    :error-messages="paramErrors"
+    @change="onChangeValue($event)"
   />
 </template>
 
 <script>
+
+import { required, minValue, maxValue, numeric } from 'vuelidate/lib/validators'
+
 export default {
   name: 'InputParam',
   data () {
     return {
       label: '',
-      hint: '',
-      patternValidParam: /^-?\d*\.?\d+$/,
-      minimalValue: 0,
-      maximalValue: 0,
-      activated: ''
+      hintText: '',
+      paramValue: '',
+      hasMinimValue: false,
+      hasMaximValue: false
     }
   },
   props: {
@@ -34,86 +37,105 @@ export default {
       required: true
     }
   },
-  watch: {
-    'data.activated': {
-      handler (val) {
-        this.activated = val
+  validations () {
+    if (this.hasMinimValue && !this.hasMaximValue) {
+      return {
+        paramValue: {
+          required,
+          minValue: minValue(this.data.minimValue),
+          numeric
+        }
+      }
+    } else if (!this.hasMinimValue && this.hasMaximValue) {
+      return {
+        paramValue: {
+          required,
+          maxValue: maxValue(this.data.maximValue),
+          numeric
+        }
+      }
+    } else if (this.hasMinimValue && this.hasMaximValue) {
+      return {
+        paramValue: {
+          required,
+          minValue: minValue(this.data.minimValue),
+          maxValue: maxValue(this.data.maximValue),
+          numeric
+        }
+      }
+    } else {
+      return {
+        paramValue: {
+          required,
+          numeric
+        }
       }
     }
   },
   mounted () {
     this.label = this.data.name + ' ' + this.data.sym + ',' + ' ' + this.data.unit
-    this.activated = this.data.activated
-    this.minimalValue = this.data.minimValue === 0 ? 0 : this.data.minimValue
-    this.maximalValue = this.data.maximValue === 0 ? 'none' : this.data.maximValue
-    // if (this.minimalValue !== 0 && this.maximalValue === 'none') {
-    //   this.hint = 'минимальное занчение ' + this.data.minimValue + this.data.unit
-    // } else if (this.minimalValue !== 0 && this.maximalValue !== 'none') {
-    //   this.hint = 'от ' + this.data.minimValue + this.data.unit + ' до ' + this.data.maximValue + this.data.unit
-    // } else if (this.minimalValue === 0 && this.maximalValue !== 'none') {
-    //   this.hint = 'максимальное занчение ' + this.data.maximValue + this.data.unit
-    // } else {
-    //   this.hint = ''
-    // }
+
+    if (this.data.minimValue !== 'none' && this.data.maximValue === 'none') {
+      this.hintText = 'Минимальное значение ' + this.data.minimValue
+      this.hasMinimValue = true
+      this.hasMaximValue = false
+    } else if (this.data.minimValue === 'none' && this.data.maximValue !== 'none') {
+      this.hintText = 'Максимальное значение ' + this.data.maximValue
+      this.hasMinimValue = false
+      this.hasMaximValue = true
+    } else if (this.data.minimValue !== 'none' && this.data.maximValue !== 'none') {
+      this.hintText = 'Значение должно быть от ' + this.data.maximValue + ' ' + 'до ' + this.data.maximValue
+      this.hasMinimValue = true
+      this.hasMaximValue = true
+    } else {
+      this.hintText = ''
+      this.hasMinimValue = false
+      this.hasMaximValue = false
+    }
   },
   methods: {
-    onActive () {
-      this.activated = true
-      this.$emit('onActivate', {
-        productParam: this.data,
-        prop: 'activated',
-        newValue: this.activated
-      })
-    },
     onChangeValue (e) {
       this.$emit('onUpdate', {
         index: this.index,
         productParam: this.data,
-        prop: 'value',
-        newValue: Number(e),
-        valid: this.patternValidParam.test(e)
+        propValue: 'value',
+        newValue: e,
+        propValid: 'valid',
+        newValidValue: this.validValue
       })
+    },
+    reset () {
+      this.$nextTick(() => { this.$v.$reset() })
+      this.paramValue = ''
     }
   },
   computed: {
-    validValue () {
-      return this.patternValidParam.test(String(this.data.value))
+    paramErrors () {
+      const errors = []
+      if (!this.$v.paramValue.$dirty) return errors
+
+      if (this.data.minimValue !== 'none' && this.data.maximValue === 'none') {
+        !this.$v.paramValue.required && errors.push('Поле не может быть пустым')
+        !this.$v.paramValue.numeric && errors.push('Введите корректное значение')
+        !this.$v.paramValue.minValue && errors.push('Значение не может быть меньше ' + this.data.minimValue)
+      } else if (this.data.minimValue === 'none' && this.data.maximValue !== 'none') {
+        !this.$v.paramValue.required && errors.push('Поле не может быть пустым')
+        !this.$v.paramValue.numeric && errors.push('Введите корректное значение')
+        !this.$v.paramValue.maxValue && errors.push('Значение не может быть больше ' + this.data.maximValue)
+      } else if (this.data.minimValue !== 'none' && this.data.maximValue !== 'none') {
+        !this.$v.paramValue.required && errors.push('Поле не может быть пустым')
+        !this.$v.paramValue.numeric && errors.push('Введите корректное значение')
+        !this.$v.paramValue.minValue && errors.push('Значение не может быть меньше ' + this.data.minimValue)
+        !this.$v.paramValue.maxValue && errors.push('Значение не может быть больше ' + this.data.maximValue)
+      } else {
+        !this.$v.paramValue.required && errors.push('Поле не может быть пустым')
+        !this.$v.paramValue.numeric && errors.push('Введите корректное значение')
+      }
+      return errors
     },
-    hintText () {
-      if (this.minimalValue !== 0 && this.maximalValue === 'none') {
-        console.log("this.minimalValue !== 0 && this.maximalValue === 'none' " + this.data.value)
-        if (this.activated && this.data.value < this.minimalValue) {
-          return 'значение не может быть меньше ' + this.minimalValue + this.data.unit
-        } else if (this.activated && this.data.value === '') {
-          return 'поле не может быть пустым'
-        } else { return '' }
-      } else if (this.minimalValue === 0 && this.maximalValue !== 'none') {
-        if (this.activated && this.data.value > this.maximalValue) {
-          return 'значение не может быть больше ' + this.maximalValue + this.data.unit
-        } else if (this.activated && this.data.value === '') {
-          return 'поле не может быть пустым'
-        } else { return '' }
-      } else if (this.minimalValue !== 0 && this.maximalValue !== 'none') {
-        if (this.activated && this.data.value < this.minimalValue) {
-          return 'значение не может быть меньше ' + this.minimalValue + this.data.unit
-        } else if (this.activated && this.data.value > this.maximalValue) {
-          return 'значение не может быть больше ' + this.maximalValue + this.data.unit
-        } else if (this.activated && this.data.value === '') {
-          return 'поле не может быть пустым'
-        } else { return '' }
-      } else { return '' }
+    validValue () {
+      return this.paramErrors.length === 0
     }
-    // validValue () {
-    //   if (this.patternValidParam.test(this.data.value) && this.data.value >= this.data.minimValue && this.data.value <= this.data.maximValue) {
-    //     if (this.hintDiv !== '') {
-    //       this.hintDiv.classList.remove('error--text')
-    //     }
-    //     return true
-    //   } else {
-    //     this.hintDiv.classList.add('error--text')
-    //     return false
-    //   }
-    // }
   }
 }
 </script>

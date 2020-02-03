@@ -38,10 +38,10 @@
               :key="addedProductParam.id"
             >
               <input-param
+                ref="inputParam"
                 :index="index"
                 :data="addedProductParam"
                 @onUpdate="updateParam($event)"
-                @onActivate="activateParam($event)"
               />
             </v-col>
           </v-row>
@@ -92,6 +92,7 @@
           class="white--text"
           small
           @click="addToCart"
+          :disabled="!this.allParamsCompleted"
         >
           Добавить
           <v-icon right size="19">mdi-cart-plus</v-icon>
@@ -122,6 +123,7 @@ export default {
   data () {
     return {
       dialog: false,
+
       addedProductId: '',
       addedProductTitle: '',
       addedShortTitle: '',
@@ -131,8 +133,8 @@ export default {
       addedShortDescriptionType: '',
 
       addedProductParams: [],
-      addedProductParamValid: [],
-      addedProductParamCount: 0,
+      addedProductParamsValid: [],
+      addedProductParamsCount: 0,
 
       addedProductSelectParams: [],
 
@@ -173,11 +175,11 @@ export default {
         let itemObj = this.product.productParams[i]
         let itemObjNew = Object.assign({}, itemObj)
         itemObjNew.value = ''
-        itemObjNew.activated = false
+        itemObjNew.valid = false
         this.addedProductParams.push(itemObjNew)
       }
       for (let i = 0; i < this.product.productParams.length; i++) {
-        this.addedProductParamValid.push(true)
+        this.addedProductParamsValid.push(false)
       }
 
       for (let i = 0; i < this.product.productSelectParams.length; i++) {
@@ -186,24 +188,19 @@ export default {
         this.addedProductSelectParams.push(itemSelectObjNew)
       }
     },
-    activateParam (payload) {
-      this.$set(payload.productParam, payload.prop, payload.newValue)
-    },
     updateParam (payload) {
-      if (isNaN(payload.newValue)) {
-        let newValue = ''
-        this.$set(payload.productParam, payload.prop, newValue)
-      } else {
-        this.$set(payload.productParam, payload.prop, payload.newValue)
-      }
-      this.addedProductParamValid[payload.index] = payload.valid
-      let addedProductParamCount = 0
-      for (let i = 0; i < this.addedProductParamValid.length; i++) {
-        if (this.addedProductParamValid[i]) {
-          addedProductParamCount++
+      this.$set(payload.productParam, payload.propValue, Number(payload.newValue))
+      this.$set(payload.productParam, payload.propValid, payload.newValidValue)
+
+      this.addedProductParamsValid[payload.index] = payload.newValidValue
+
+      let addedProductParamsCount = 0
+      for (let i = 0; i < this.addedProductParamsValid.length; i++) {
+        if (this.addedProductParamsValid[i]) {
+          addedProductParamsCount++
         }
       }
-      this.addedProductParamCount = addedProductParamCount
+      this.addedProductParamsCount = addedProductParamsCount
     },
     updateSelect (payload) {
       this.$set(payload.productSelect, payload.prop, payload.newValue)
@@ -226,6 +223,9 @@ export default {
       this.addedProductQuantityActivated = false
       this.initValue()
       this.dialog = false
+      for (let i = 0; i < this.$refs.inputParam.length; i++) {
+        this.$refs.inputParam[i].reset()
+      }
     },
     addToCart () {
       const randomId = this.strRand()
@@ -263,6 +263,12 @@ export default {
     },
     isSelectFields () {
       return this.addedProductSelectParams.length !== 0
+    },
+    inputsParamCompleted () {
+      return this.addedProductParams.length === this.addedProductParamsCount
+    },
+    allParamsCompleted () {
+      return this.inputsParamCompleted
     }
   }
 }
