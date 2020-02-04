@@ -5,6 +5,8 @@
     required
     :items="this.data.arraySelectItems"
     @input="onChangeValue($event)"
+    outlined
+    dense
   />
 </template>
 

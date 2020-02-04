@@ -6,6 +6,8 @@
     @input="updateInput($event)"
     @blur="$v.quantityValue.$touch()"
     :error-messages="quantityErrors"
+    outlined
+    dense
   />
 </template>
 

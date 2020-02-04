@@ -7,12 +7,14 @@
     @input="updateInput($event)"
     @blur="$v.paramValue.$touch()"
     :error-messages="paramErrors"
+    outlined
+    dense
   />
 </template>
 
 <script>
 
-import { required, minValue, maxValue, numeric } from 'vuelidate/lib/validators'
+import { required, minValue, maxValue, integer, decimal } from 'vuelidate/lib/validators'
 
 export default {
   name: 'InputParam',
@@ -39,15 +41,16 @@ export default {
     this.label = this.data.name + ' ' + this.data.sym + ',' + ' ' + this.data.unit
 
     if (this.data.minimValue !== 'none' && this.data.maximValue === 'none') {
-      this.hintText = 'Минимальное значение ' + this.data.minimValue
+      // целые числа с ограничением минимального значения
+      this.hintText = 'Минимальное значение параметра - ' + this.data.minimValue + this.data.unit
       this.hasMinimValue = true
       this.hasMaximValue = false
     } else if (this.data.minimValue === 'none' && this.data.maximValue !== 'none') {
-      this.hintText = 'Максимальное значение ' + this.data.maximValue
+      this.hintText = 'Максимальное значение параметра - ' + this.data.maximValue + this.data.unit
       this.hasMinimValue = false
       this.hasMaximValue = true
     } else if (this.data.minimValue !== 'none' && this.data.maximValue !== 'none') {
-      this.hintText = 'Значение должно быть от ' + this.data.maximValue + ' ' + 'до ' + this.data.maximValue
+      this.hintText = 'Значение параметра может быть от ' + this.data.maximValue + this.data.unit + ' ' + 'до ' + this.data.maximValue + this.data.unit
       this.hasMinimValue = true
       this.hasMaximValue = true
     } else {
@@ -57,36 +60,76 @@ export default {
     }
   },
   validations () {
-    if (this.hasMinimValue && !this.hasMaximValue) {
+    if (this.hasMinimValue && !this.hasMaximValue && this.data.decimal === false) {
+      // целые числа с ограничением минимального значения
       return {
         paramValue: {
           required,
           minValue: minValue(this.data.minimValue),
-          numeric
+          integer
         }
       }
-    } else if (!this.hasMinimValue && this.hasMaximValue) {
-      return {
-        paramValue: {
-          required,
-          maxValue: maxValue(this.data.maximValue),
-          numeric
-        }
-      }
-    } else if (this.hasMinimValue && this.hasMaximValue) {
+    } else if (this.hasMinimValue && !this.hasMaximValue && this.data.decimal === true) {
+      // десятичные числа с ограничением минимального значения
       return {
         paramValue: {
           required,
           minValue: minValue(this.data.minimValue),
-          maxValue: maxValue(this.data.maximValue),
-          numeric
+          decimal
+        }
+      }
+    } else if (!this.hasMinimValue && !this.hasMaximValue && this.data.decimal === false) {
+      // целые числа без ограничения значения
+      return {
+        paramValue: {
+          required,
+          integer
+        }
+      }
+    } else if (this.hasMinimValue && this.hasMaximValue && this.data.decimal === false) {
+      // целые числа с ограничением минимального и максимального значения
+      return {
+        paramValue: {
+          required,
+          integer,
+          minValue: minValue(this.data.minimValue),
+          maxValue: maxValue(this.data.maximValue)
+        }
+      }
+    } else if (this.hasMinimValue && this.hasMaximValue && this.data.decimal === true) {
+      // десятичные числа с ограничением минимального и максимального значения
+      return {
+        paramValue: {
+          required,
+          decimal,
+          minValue: minValue(this.data.minimValue),
+          maxValue: maxValue(this.data.maximValue)
+        }
+      }
+    } else if (!this.hasMinimValue && this.hasMaximValue && this.data.decimal === false) {
+      // целые числа с ограничением максимального значения
+      return {
+        paramValue: {
+          required,
+          integer,
+          maxValue: maxValue(this.data.maximValue)
+        }
+      }
+    } else if (!this.hasMinimValue && !this.hasMaximValue && this.data.decimal === true) {
+      // десятичные числа без ограничения значения
+      return {
+        paramValue: {
+          required,
+          decimal
         }
       }
     } else {
+      // десятичные числа с ограничением максимального значения (this.data.decimal === true)
       return {
         paramValue: {
           required,
-          numeric
+          decimal,
+          maxValue: maxValue(this.data.maximValue)
         }
       }
     }
@@ -116,22 +159,46 @@ export default {
       const errors = []
       if (!this.$v.paramValue.$dirty) return errors
 
-      if (this.data.minimValue !== 'none' && this.data.maximValue === 'none') {
+      if (this.hasMinimValue && !this.hasMaximValue && this.data.decimal === false) {
+        // целые числа с ограничением минимального значения
         !this.$v.paramValue.required && errors.push('Поле не может быть пустым')
-        !this.$v.paramValue.numeric && errors.push('Введите корректное значение')
+        !this.$v.paramValue.integer && errors.push('Введите корректное значение')
         !this.$v.paramValue.minValue && errors.push('Значение не может быть меньше ' + this.data.minimValue)
-      } else if (this.data.minimValue === 'none' && this.data.maximValue !== 'none') {
+      } else if (this.hasMinimValue && !this.hasMaximValue && this.data.decimal === true) {
+        // десятичные числа с ограничением минимального значения
         !this.$v.paramValue.required && errors.push('Поле не может быть пустым')
-        !this.$v.paramValue.numeric && errors.push('Введите корректное значение')
-        !this.$v.paramValue.maxValue && errors.push('Значение не может быть больше ' + this.data.maximValue)
-      } else if (this.data.minimValue !== 'none' && this.data.maximValue !== 'none') {
+        !this.$v.paramValue.decimal && errors.push('Введите корректное значение')
+        !this.$v.paramValue.minValue && errors.push('Значение не может быть меньше ' + this.data.minimValue)
+      } else if (!this.hasMinimValue && !this.hasMaximValue && this.data.decimal === false) {
+        // целые числа без ограничения значения
         !this.$v.paramValue.required && errors.push('Поле не может быть пустым')
-        !this.$v.paramValue.numeric && errors.push('Введите корректное значение')
+        !this.$v.paramValue.integer && errors.push('Введите корректное значение')
+      } else if (this.hasMinimValue && this.hasMaximValue && this.data.decimal === false) {
+        // целые числа с ограничением минимального и максимального значения
+        !this.$v.paramValue.required && errors.push('Поле не может быть пустым')
+        !this.$v.paramValue.integer && errors.push('Введите корректное значение')
         !this.$v.paramValue.minValue && errors.push('Значение не может быть меньше ' + this.data.minimValue)
         !this.$v.paramValue.maxValue && errors.push('Значение не может быть больше ' + this.data.maximValue)
+      } else if (this.hasMinimValue && this.hasMaximValue && this.data.decimal === true) {
+        // десятичные числа с ограничением минимального и максимального значения
+        !this.$v.paramValue.required && errors.push('Поле не может быть пустым')
+        !this.$v.paramValue.decimal && errors.push('Введите корректное значение')
+        !this.$v.paramValue.minValue && errors.push('Значение не может быть меньше ' + this.data.minimValue)
+        !this.$v.paramValue.maxValue && errors.push('Значение не может быть больше ' + this.data.maximValue)
+      } else if (!this.hasMinimValue && this.hasMaximValue && this.data.decimal === false) {
+        // целые числа с ограничением максимального значения
+        !this.$v.paramValue.required && errors.push('Поле не может быть пустым')
+        !this.$v.paramValue.integer && errors.push('Введите корректное значение')
+        !this.$v.paramValue.maxValue && errors.push('Значение не может быть больше ' + this.data.maximValue)
+      } else if (!this.hasMinimValue && !this.hasMaximValue && this.data.decimal === true) {
+        // десятичные числа без ограничения значения
+        !this.$v.paramValue.required && errors.push('Поле не может быть пустым')
+        !this.$v.paramValue.decimal && errors.push('Введите корректное значение')
       } else {
+        // десятичные числа с ограничением максимального значения (this.data.decimal === true)
         !this.$v.paramValue.required && errors.push('Поле не может быть пустым')
-        !this.$v.paramValue.numeric && errors.push('Введите корректное значение')
+        !this.$v.paramValue.decimal && errors.push('Введите корректное значение')
+        !this.$v.paramValue.maxValue && errors.push('Значение не может быть больше ' + this.data.maximValue)
       }
       return errors
     },

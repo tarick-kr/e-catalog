@@ -1023,9 +1023,36 @@ export default {
               {
                 id: 'param1-prod5-cat2',
                 name: 'Диаметр',
-                sym: 'd',
+                sym: 'd1',
                 unit: 'мм',
                 minimValue: 100,
+                maximValue: 'none',
+                decimal: false
+              },
+              {
+                id: 'param2-prod5-cat2',
+                name: 'Диаметр',
+                sym: 'd2',
+                unit: 'мм',
+                minimValue: 'none',
+                maximValue: 'none',
+                decimal: false
+              },
+              {
+                id: 'param3-prod5-cat2',
+                name: 'Высота',
+                sym: 'h1',
+                unit: 'мм',
+                minimValue: 'none',
+                maximValue: 'none',
+                decimal: false
+              },
+              {
+                id: 'param4-prod5-cat2',
+                name: 'Высота',
+                sym: 'h2',
+                unit: 'мм',
+                minimValue: 'none',
                 maximValue: 'none',
                 decimal: false
               }
