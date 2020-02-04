@@ -1,69 +1,65 @@
 <template>
   <v-text-field
     :label="this.label"
-    :hint="this.hintText"
-    persistent-hint
+    v-model="quantityValue"
     required
-    :value="this.data"
-    @input ="onChangeValue($event)"
-    :error="this.activated && !this.validValue"
+    @input="updateInput($event)"
+    @blur="$v.quantityValue.$touch()"
+    :error-messages="quantityErrors"
   />
 </template>
 
 <script>
+import { required, minValue, numeric } from 'vuelidate/lib/validators'
+
 export default {
   name: 'InputQuantity',
   data () {
     return {
-      label: '',
-      // hint: '',
-      patternValidQuantity: /^(?:[1-9]\d*|\d)$/
-      // hintDiv: ''
+      label: 'Количество, шт',
+      quantityValue: ''
     }
   },
   props: {
-    data: {
-      type: [Number, String],
-      required: false
-    },
-    activated: {
-      type: Boolean,
-      required: true
-    }
   },
   mounted () {
-    this.label = 'Количество, шт'
-    // this.hintDiv = this.$el.getElementsByClassName('v-messages theme--light')[0]
-    // console.log(this.hintDiv)
+  },
+  validations () {
+    return {
+      quantityValue: {
+        required,
+        minValue: minValue(1),
+        numeric
+      }
+    }
   },
   methods: {
+    updateInput (e) {
+      this.$v.quantityValue.$touch()
+      this.onChangeValue(e)
+    },
     onChangeValue (e) {
-      if (!this.activated) {
-        this.$emit('onUpdate', {
-          activated: true,
-          newValue: e,
-          valid: this.patternValidQuantity.test(String(e)) && e > 0
-        })
-      } else {
-        this.$emit('onUpdate', {
-          newValue: e,
-          valid: this.patternValidQuantity.test(String(e)) && e > 0
-        })
-      }
+      this.$emit('onUpdate', {
+        newValue: e,
+        valid: this.validValue
+      })
+    },
+    reset () {
+      this.$nextTick(() => { this.$v.$reset() })
+      this.quantityValue = ''
     }
   },
   computed: {
-    validValue () {
-      return this.patternValidQuantity.test(String(this.data)) && this.data > 0
+    quantityErrors () {
+      const errors = []
+      if (!this.$v.quantityValue.$dirty) return errors
+      !this.$v.quantityValue.required && errors.push('Поле не может быть пустым')
+      !this.$v.quantityValue.numeric && errors.push('Введите корректное значение')
+      !this.$v.quantityValue.minValue && errors.push('Значение не может быть меньше 1')
+      return errors
     },
-    hintText () {
-      if ((this.activated && this.data === 0) || (this.activated && this.data < 0)) {
-        return 'количество не может быть меньше 1'
-      } else if (this.activated && this.data === '') {
-        return 'поле не может быть пустым'
-      } else {
-        return ''
-      }
+    validValue () {
+      return this.quantityErrors.length === 0
     }
   }
 }

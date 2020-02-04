@@ -9,39 +9,20 @@
       </v-btn>
     </template>
     <v-card>
-      <v-card-title class="text-center background-card-title px-1 px-sm-2 px-md-4 mb-4 py-2">
-        <span class="title font-weight-bold mx-auto white--text">{{ this.addedProductTitle }}</span>
-      </v-card-title>
-      <v-container>
-        <v-row justify="center">
-          <v-col cols="6" sm="3"
-            v-for="(srcImg, index) in this.addedProductImages"
-            :key="index"
-          >
-            <v-img
-              :src="srcImg"
-              max-height="200"
-              contain
-            />
-          </v-col>
-        </v-row>
-      </v-container>
-      <div class="text-center px-1 px-sm-2 px-md-4">
-        <v-divider class="divider-width-align"/>
-      </div>
-      <v-card-text class="px-1 px-sm-2 px-md-4">
+      <v-form>
+        <v-card-title class="text-center background-card-title px-1 px-sm-2 px-md-4 mb-4 py-2">
+          <span class="title font-weight-bold mx-auto white--text">{{ this.addedProductTitle }}</span>
+        </v-card-title>
         <v-container>
-          <v-row>
-            <v-col
-              cols="12" sm="4"
-              v-for="(addedProductParam, index) in this.addedProductParams"
-              :key="addedProductParam.id"
+          <v-row justify="center">
+            <v-col cols="6" sm="3"
+                   v-for="(srcImg, index) in this.addedProductImages"
+                   :key="index"
             >
-              <input-param
-                ref="inputParam"
-                :index="index"
-                :data="addedProductParam"
-                @onUpdate="updateParam($event)"
+              <v-img
+                :src="srcImg"
+                max-height="200"
+                contain
               />
             </v-col>
           </v-row>
@@ -49,55 +30,75 @@
         <div class="text-center px-1 px-sm-2 px-md-4">
           <v-divider class="divider-width-align"/>
         </div>
-        <v-container v-if="this.isSelectFields">
-          <v-row>
-            <v-col
-              cols="12" sm="4"
-              v-for="(itemSelect, index) in this.addedProductSelectParams"
-              :key="index">
-              <input-select
-                :data="itemSelect"
-                :index="index"
-                @onUpdate="updateSelect($event)"
-              />
-            </v-col>
-          </v-row>
-        </v-container>
-        <v-divider class="divider-width-align"/>
-        <v-container>
-          <v-row>
-            <v-col cols="12" sm="4">
-              <input-quantity
-                :data="this.addedProductQuantity"
-                :activated="this.addedProductQuantityActivated"
-                @onUpdate="updateQuantity($event)"
-              />
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-card-text>
-      <v-card-actions>
-        <v-spacer/>
-        <v-btn
-          class="mr-4"
-          color="red accent-4"
-          dark
-          small
-          @click="onCancel"
-        >Закрыть
-          <v-icon right size="21">close</v-icon>
-        </v-btn>
-        <v-btn
-          color="blue darken-1"
-          class="white--text"
-          small
-          @click="addToCart"
-          :disabled="!this.allParamsCompleted"
-        >
-          Добавить
-          <v-icon right size="19">mdi-cart-plus</v-icon>
-        </v-btn>
-      </v-card-actions>
+        <v-card-text class="px-1 px-sm-2 px-md-4">
+          <v-container>
+            <v-row>
+              <v-col
+                cols="12" sm="4"
+                v-for="(addedProductParam, index) in this.addedProductParams"
+                :key="addedProductParam.id"
+              >
+                <input-param
+                  ref="inputParam"
+                  :index="index"
+                  :data="addedProductParam"
+                  @onUpdate="updateParam($event)"
+                />
+              </v-col>
+            </v-row>
+          </v-container>
+          <div class="text-center px-1 px-sm-2 px-md-4">
+            <v-divider class="divider-width-align"/>
+          </div>
+          <v-container v-if="this.hasSelectFields">
+            <v-row>
+              <v-col
+                cols="12" sm="4"
+                v-for="(itemSelect, index) in this.addedProductSelectParams"
+                :key="index">
+                <input-select
+                  :data="itemSelect"
+                  :index="index"
+                  @onUpdate="updateSelect($event)"
+                />
+              </v-col>
+            </v-row>
+          </v-container>
+          <v-divider class="divider-width-align"/>
+          <v-container>
+            <v-row>
+              <v-col cols="12" sm="4">
+                <input-quantity
+                  ref="inputQuantity"
+                  @onUpdate="updateQuantity($event)"
+                />
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer/>
+          <v-btn
+            class="mr-4"
+            color="red accent-4"
+            dark
+            small
+            @click="onCancel"
+          >Закрыть
+            <v-icon right size="21">close</v-icon>
+          </v-btn>
+          <v-btn
+            color="blue darken-1"
+            class="white--text"
+            small
+            @click="addToCart"
+            :disabled="!this.allParamsCompleted"
+          >
+            Добавить
+            <v-icon right size="19">mdi-cart-plus</v-icon>
+          </v-btn>
+        </v-card-actions>
+      </v-form>
     </v-card>
   </v-dialog>
 </template>
@@ -123,7 +124,6 @@ export default {
   data () {
     return {
       dialog: false,
-
       addedProductId: '',
       addedProductTitle: '',
       addedShortTitle: '',
@@ -131,16 +131,12 @@ export default {
       addedProductImages: [],
       addedProductDescription: '',
       addedShortDescriptionType: '',
-
       addedProductParams: [],
       addedProductParamsValid: [],
       addedProductParamsCount: 0,
-
       addedProductSelectParams: [],
-
       addedProductQuantity: '',
-      addedProductQuantityValid: true,
-      addedProductQuantityActivated: false
+      addedProductQuantityValid: ''
     }
   },
   components: {
@@ -165,7 +161,7 @@ export default {
     initValue () {
       this.addedProductId = this.strRand()
       this.addedProductTitle = this.product.titleProduct
-      this.shortTitle = this.product.shortTitle
+      this.addedShortTitle = this.product.shortTitle
       this.addedProductImage = this.product.imageProduct
       this.addedProductImages = this.product.imageAndSchemesProduct
       this.addedProductDescription = this.product.description
@@ -187,6 +183,8 @@ export default {
         let itemSelectObjNew = Object.assign({}, itemSelectObj)
         this.addedProductSelectParams.push(itemSelectObjNew)
       }
+
+      this.addedProductQuantityValid = false
     },
     updateParam (payload) {
       this.$set(payload.productParam, payload.propValue, Number(payload.newValue))
@@ -206,26 +204,26 @@ export default {
       this.$set(payload.productSelect, payload.prop, payload.newValue)
     },
     updateQuantity (payload) {
-      if (payload.newValue === '' || isNaN(payload.newValue)) {
-        this.addedProductQuantity = ''
-      } else {
-        this.addedProductQuantity = Number(payload.newValue)
-      }
-      if (payload.activated) {
-        this.addedProductQuantityActivated = payload.activated
-      }
+      console.log(payload)
+      this.addedProductQuantity = Number(payload.newValue)
       this.addedProductQuantityValid = payload.valid
     },
-    onCancel () {
+    resetForm () {
       this.addedProductParams = []
       this.addedProductSelectParams = []
       this.addedProductQuantity = ''
-      this.addedProductQuantityActivated = false
-      this.initValue()
       this.dialog = false
+    },
+    resetInputs () {
       for (let i = 0; i < this.$refs.inputParam.length; i++) {
         this.$refs.inputParam[i].reset()
       }
+      this.$refs.inputQuantity.reset()
+    },
+    onCancel () {
+      this.resetForm()
+      this.initValue()
+      this.resetInputs()
     },
     addToCart () {
       const randomId = this.strRand()
@@ -243,12 +241,9 @@ export default {
       }
       this.$store.dispatch('ADD_PRODUCT_TO_CART', product)
 
-      this.addedProductParams = []
-      this.addedProductSelectParams = []
-      this.addedProductQuantity = ''
-      this.addedProductQuantityActivated = false
+      this.resetForm()
       this.initValue()
-      this.dialog = false
+      this.resetInputs()
     }
   },
   computed: {
@@ -261,14 +256,17 @@ export default {
       const productId = this.productId
       return this.$store.getters.getProductByCategoryIdAndProductId(categoryId, productId)
     },
-    isSelectFields () {
+    hasSelectFields () {
       return this.addedProductSelectParams.length !== 0
     },
     inputsParamCompleted () {
       return this.addedProductParams.length === this.addedProductParamsCount
     },
+    inputQuantityCompleted () {
+      return this.addedProductQuantityValid
+    },
     allParamsCompleted () {
-      return this.inputsParamCompleted
+      return this.inputsParamCompleted && this.inputQuantityCompleted
     }
   }
 }

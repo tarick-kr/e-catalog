@@ -1,14 +1,12 @@
 <template>
   <v-text-field
-    :value="this.data.value"
     :hint="this.hintText"
     :label="this.label"
     required
     v-model="paramValue"
-    @input="$v.paramValue.$touch()"
+    @input="updateInput($event)"
     @blur="$v.paramValue.$touch()"
     :error-messages="paramErrors"
-    @change="onChangeValue($event)"
   />
 </template>
 
@@ -35,6 +33,27 @@ export default {
     index: {
       type: Number,
       required: true
+    }
+  },
+  mounted () {
+    this.label = this.data.name + ' ' + this.data.sym + ',' + ' ' + this.data.unit
+
+    if (this.data.minimValue !== 'none' && this.data.maximValue === 'none') {
+      this.hintText = 'Минимальное значение ' + this.data.minimValue
+      this.hasMinimValue = true
+      this.hasMaximValue = false
+    } else if (this.data.minimValue === 'none' && this.data.maximValue !== 'none') {
+      this.hintText = 'Максимальное значение ' + this.data.maximValue
+      this.hasMinimValue = false
+      this.hasMaximValue = true
+    } else if (this.data.minimValue !== 'none' && this.data.maximValue !== 'none') {
+      this.hintText = 'Значение должно быть от ' + this.data.maximValue + ' ' + 'до ' + this.data.maximValue
+      this.hasMinimValue = true
+      this.hasMaximValue = true
+    } else {
+      this.hintText = ''
+      this.hasMinimValue = false
+      this.hasMaximValue = false
     }
   },
   validations () {
@@ -72,28 +91,11 @@ export default {
       }
     }
   },
-  mounted () {
-    this.label = this.data.name + ' ' + this.data.sym + ',' + ' ' + this.data.unit
-
-    if (this.data.minimValue !== 'none' && this.data.maximValue === 'none') {
-      this.hintText = 'Минимальное значение ' + this.data.minimValue
-      this.hasMinimValue = true
-      this.hasMaximValue = false
-    } else if (this.data.minimValue === 'none' && this.data.maximValue !== 'none') {
-      this.hintText = 'Максимальное значение ' + this.data.maximValue
-      this.hasMinimValue = false
-      this.hasMaximValue = true
-    } else if (this.data.minimValue !== 'none' && this.data.maximValue !== 'none') {
-      this.hintText = 'Значение должно быть от ' + this.data.maximValue + ' ' + 'до ' + this.data.maximValue
-      this.hasMinimValue = true
-      this.hasMaximValue = true
-    } else {
-      this.hintText = ''
-      this.hasMinimValue = false
-      this.hasMaximValue = false
-    }
-  },
   methods: {
+    updateInput (e) {
+      this.$v.paramValue.$touch()
+      this.onChangeValue(e)
+    },
     onChangeValue (e) {
       this.$emit('onUpdate', {
         index: this.index,
