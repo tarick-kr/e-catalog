@@ -179,6 +179,7 @@ export default {
             imageAndSchemesProduct: [imageProd1Cat1, scheme1Prod1Cat1],
             description: 'Спирально-навивные воздуховоды изготавливаются путём скручивания оцинкованной ленты с последующим соединением ленты в замок. Благодаря шву воздуховоды обладают повышенной жёсткостью и имеют небольшой вес.',
             shortDescriptionType: 'Type1',
+            sequence: ['d', 'L'],
             productParams: [
               {
                 id: 'param1-prod1-cat1',
@@ -199,7 +200,7 @@ export default {
                 decimal: false
               }
             ],
-            productSelectParams: ['Type1', 'Type2', 'Type4', 'Type5']
+            productSelectParams: ['Type4', 'Type5']
           },
           {
             id: 'prod2-cat1',
@@ -209,6 +210,7 @@ export default {
             imageAndSchemesProduct: [imageProd2Cat1, scheme1Prod2Cat1],
             description: 'Прямошовные воздуховоды представляют собой стальной лист, загнутый в трубу с фальцевым соединение. Изготовляются из цельного оцинкованного листа. Применяются в системах аспирации и в системах с высоким содержанием пыли.',
             shortDescriptionType: 'Type1',
+            sequence: ['d', 'L'],
             productParams: [
               {
                 id: 'param1-prod2-cat1',
@@ -238,7 +240,8 @@ export default {
             imageProduct: imageProd3Cat1,
             imageAndSchemesProduct: [imageProd3Cat1, scheme1Prod3Cat1],
             description: 'Ниппель используется для соединения воздуховодов и фасонных изделий одного диаметра. Отличается от муфты тем, что устанавливается внутрь скрепляемых деталей, поэтому имеет фактический диаметр чуть меньше диаметра трубы.',
-            shortDescriptionType: 'Type2',
+            shortDescriptionType: 'Type1',
+            sequence: ['d'],
             productParams: [
               {
                 id: 'param1-prod3-cat1',
@@ -259,7 +262,8 @@ export default {
             imageProduct: imageProd4Cat1,
             imageAndSchemesProduct: [imageProd4Cat1, scheme1Prod4Cat1],
             description: 'Заглушка используется для перекрытия вентиляционного канала в конце ветки, чтобы защитить его от нежелательных элементов, которые могут попасть в воздуховод.',
-            shortDescriptionType: 'Type2',
+            shortDescriptionType: 'Type1',
+            sequence: ['d'],
             productParams: [
               {
                 id: 'param1-prod4-cat1',
@@ -280,7 +284,8 @@ export default {
             imageProduct: imageProd5Cat1,
             imageAndSchemesProduct: [imageProd5Cat1, scheme1Prod5Cat1],
             description: 'Врезка круглого сечения в плоскость предназначена для подсоединения (врезания) круглой системы в прямоугольный воздуховод. По заказу возможно исполнение врезки – муфты.',
-            shortDescriptionType: 'Type2',
+            shortDescriptionType: 'Type1',
+            sequence: ['d'],
             productParams: [
               {
                 id: 'param1-prod5-cat1',
@@ -301,7 +306,8 @@ export default {
             imageProduct: imageProd6Cat1,
             imageAndSchemesProduct: [imageProd6Cat1, scheme1Prod6Cat1],
             description: 'Врезка-седло круглого сечения – это фасонный элемент вентиляционной системы, используемый для присоединения отвода к магистральному воздуховоду круглого сечения.',
-            shortDescriptionType: 'Type3',
+            shortDescriptionType: 'Type2',
+            sequence: ['d1', 'd2'],
             productParams: [
               {
                 id: 'param1-prod6-cat1',
@@ -328,10 +334,12 @@ export default {
             id: 'prod18-cat1',
             titleProduct: 'Врезка круглого сечения в плоскость угловая под 45°',
             shortTitle: 'Врезка угловая (Кр)',
+            angle: '45°',
             imageProduct: imageProd18Cat1,
             imageAndSchemesProduct: [imageProd18Cat1, scheme1Prod18Cat1],
             description: 'Врезка круглого сечения в плоскость угловая предназначена для подсоединения (врезания) круглой системы в прямоугольный воздуховод под углом.',
-            shortDescriptionType: 'Type4',
+            shortDescriptionType: 'Type3',
+            sequence: ['d'],
             productParams: [
               {
                 id: 'param1-prod13-cat1',
@@ -352,7 +360,8 @@ export default {
             imageProduct: imageProd7Cat1,
             imageAndSchemesProduct: [imageProd7Cat1, scheme1Prod7Cat1],
             description: 'Муфта применяется для соединения воздуховодов и фасонных изделий одного диаметра. Отличается от ниппеля тем, что одевается сверху на скрепляемые детали, поэтому имеет фактический диаметр чуть больше диаметра трубы.',
-            shortDescriptionType: 'Type2',
+            shortDescriptionType: 'Type1',
+            sequence: ['d'],
             productParams: [
               {
                 id: 'param1-prod7-cat1',
@@ -373,7 +382,8 @@ export default {
             imageProduct: imageProd8Cat1,
             imageAndSchemesProduct: [imageProd8Cat1, scheme1Prod8Cat1],
             description: 'Для соединения двух воздуховодов круглого сечения разных диаметров применяется переход круглого сечения. Переход круглого сечения бывает нескольких типов. Центральный – когда оси воздуховодов совпадают, односторонний – когда один из воздуховодов вплотную смещён к краю и переход круглого сечения со смещением – когда оси воздуховодов не совпадают и при этом один из воздуховодов имеет смещение относительно края другого воздуховода.',
-            shortDescriptionType: 'Type3',
+            shortDescriptionType: 'Type2',
+            sequence: ['d1', 'd2'],
             productParams: [
               {
                 id: 'param1-prod8-cat1',
@@ -403,7 +413,8 @@ export default {
             imageProduct: imageProd9Cat1,
             imageAndSchemesProduct: [imageProd9Cat1, scheme1Prod9Cat1],
             description: 'Для соединения двух воздуховодов круглого сечения разных диаметров применяется переход круглого сечения. Переход круглого сечения бывает нескольких типов. Центральный – когда оси воздуховодов совпадают, односторонний – когда один из воздуховодов вплотную смещён к краю и переход круглого сечения со смещением – когда оси воздуховодов не совпадают и при этом один из воздуховодов имеет смещение относительно края другого воздуховода.',
-            shortDescriptionType: 'Type3',
+            shortDescriptionType: 'Type2',
+            sequence: ['d1', 'd2'],
             productParams: [
               {
                 id: 'param1-prod9-cat1',
@@ -433,7 +444,8 @@ export default {
             imageProduct: imageProd19Cat1,
             imageAndSchemesProduct: [imageProd19Cat1, scheme1Prod19Cat1],
             description: 'Для соединения двух воздуховодов круглого сечения разных диаметров применяется переход круглого сечения. Переход круглого сечения бывает нескольких типов. Центральный – когда оси воздуховодов совпадают, односторонний – когда один из воздуховодов вплотную смещён к краю и переход круглого сечения со смещением – когда оси воздуховодов не совпадают и при этом один из воздуховодов имеет смещение относительно края другого воздуховода.',
-            shortDescriptionType: 'Type5',
+            shortDescriptionType: 'Type2',
+            sequence: ['d1', 'd2', 'f'],
             productParams: [
               {
                 id: 'param1-prod9-cat1',
@@ -469,10 +481,12 @@ export default {
             id: 'prod10-cat1',
             titleProduct: 'Тройник круглого сечения под 45°',
             shortTitle: 'Тройник (Кр)',
+            angle: '45°',
             imageProduct: imageProd10Cat1,
             imageAndSchemesProduct: [imageProd10Cat1, scheme1Prod10Cat1],
             description: 'Тройник круглого сечения под 45° предназначен для разветвления линии воздуховодов (разветвления одного потока воздуха на два или объединения двух потоков в один).',
-            shortDescriptionType: 'Type6',
+            shortDescriptionType: 'Type3',
+            sequence: ['D', 'd'],
             productParams: [
               {
                 id: 'param1-prod10-cat1',
@@ -499,10 +513,12 @@ export default {
             id: 'prod11-cat1',
             titleProduct: 'Тройник круглого сечения под 90°',
             shortTitle: 'Тройник (Кр)',
+            angle: '90°',
             imageProduct: imageProd11Cat1,
             imageAndSchemesProduct: [imageProd11Cat1, scheme1Prod11Cat1],
             description: 'Тройник круглого сечения под 90° предназначен для разветвления линии воздуховодов (разветвления одного потока воздуха на два или объединения двух потоков в один).',
-            shortDescriptionType: 'Type6',
+            shortDescriptionType: 'Type3',
+            sequence: ['D', 'd'],
             productParams: [
               {
                 id: 'param1-prod11-cat1',
@@ -532,7 +548,8 @@ export default {
             imageProduct: imageProd12Cat1,
             imageAndSchemesProduct: [imageProd12Cat1, scheme1Prod12Cat1],
             description: 'Тройник Y-образный предназначен для разветвления линии воздуховодов (разветвления одного потока воздуха на два или объединения двух потоков в один).',
-            shortDescriptionType: 'Type7',
+            shortDescriptionType: 'Type2',
+            sequence: ['D', 'd1', 'd2'],
             productParams: [
               {
                 id: 'param1-prod12-cat1',
@@ -568,10 +585,12 @@ export default {
             id: 'prod13-cat1',
             titleProduct: 'Отвод сегментный под 15°',
             shortTitle: 'Отвод (Кр)',
+            angle: '15°',
             imageProduct: imageProd13Cat1,
             imageAndSchemesProduct: [imageProd13Cat1, scheme1Prod13Cat1],
             description: 'Отвод сегментный под 15° круглого сечения предназначен для плавного направления системы воздуховода под 15° по горизонтали или вертикали.',
-            shortDescriptionType: 'Type4',
+            shortDescriptionType: 'Type3',
+            sequence: ['d'],
             productParams: [
               {
                 id: 'param1-prod17-cat1',
@@ -589,10 +608,12 @@ export default {
             id: 'prod14-cat1',
             titleProduct: 'Отвод сегментный под 30°',
             shortTitle: 'Отвод (Кр)',
+            angle: '30°',
             imageProduct: imageProd14Cat1,
             imageAndSchemesProduct: [imageProd14Cat1, scheme1Prod14Cat1],
             description: 'Отвод сегментный под 30° круглого сечения предназначен для плавного направления системы воздуховода под 30° по горизонтали или вертикали.',
-            shortDescriptionType: 'Type4',
+            shortDescriptionType: 'Type3',
+            sequence: ['d'],
             productParams: [
               {
                 id: 'param1-prod15-cat1',
@@ -610,10 +631,12 @@ export default {
             id: 'prod15-cat1',
             titleProduct: 'Отвод сегментный под 45°',
             shortTitle: 'Отвод (Кр)',
+            angle: '45°',
             imageProduct: imageProd15Cat1,
             imageAndSchemesProduct: [imageProd15Cat1, scheme1Prod15Cat1],
             description: 'Отвод сегментный под 45° круглого сечения предназначен для плавного направления системы воздуховода под 45° по горизонтали или вертикали.',
-            shortDescriptionType: 'Type4',
+            shortDescriptionType: 'Type3',
+            sequence: ['d'],
             productParams: [
               {
                 id: 'param1-prod14-cat1',
@@ -631,10 +654,12 @@ export default {
             id: 'prod16-cat1',
             titleProduct: 'Отвод сегментный под 60°',
             shortTitle: 'Отвод (Кр)',
+            angle: '60°',
             imageProduct: imageProd16Cat1,
             imageAndSchemesProduct: [imageProd16Cat1, scheme1Prod16Cat1],
             description: 'Отвод сегментный под 60° круглого сечения предназначен для плавного направления системы воздуховода под 60° по горизонтали или вертикали.',
-            shortDescriptionType: 'Type4',
+            shortDescriptionType: 'Type3',
+            sequence: ['d'],
             productParams: [
               {
                 id: 'param1-prod16-cat1',
@@ -652,10 +677,12 @@ export default {
             id: 'prod17-cat1',
             titleProduct: 'Отвод сегментный под 90°',
             shortTitle: 'Отвод (Кр)',
+            angle: '90°',
             imageProduct: imageProd17Cat1,
             imageAndSchemesProduct: [imageProd17Cat1, scheme1Prod17Cat1],
             description: 'Отвод сегментный под 90° круглого сечения предназначен для плавного направления системы воздуховода под 90° по горизонтали или вертикали.',
-            shortDescriptionType: 'Type4',
+            shortDescriptionType: 'Type3',
+            sequence: ['d'],
             productParams: [
               {
                 id: 'param1-prod13-cat1',
@@ -676,7 +703,8 @@ export default {
             imageProduct: imageProd20Cat1,
             imageAndSchemesProduct: [imageProd20Cat1, scheme1Prod20Cat1],
             description: 'Крестовина используется для соединения четырёх воздуховодов одновременно.',
-            shortDescriptionType: 'Type8',
+            shortDescriptionType: 'Type1',
+            sequence: ['D', 'd1', 'd2', 'L'],
             productParams: [
               {
                 id: 'param1-prod20-cat1',
@@ -724,7 +752,8 @@ export default {
             imageProduct: imageProd21Cat1,
             imageAndSchemesProduct: [imageProd21Cat1, scheme1Prod21Cat1],
             description: 'Крестовина используется для соединения четырёх воздуховодов одновременно.',
-            shortDescriptionType: 'Type9',
+            shortDescriptionType: 'Type1',
+            sequence: ['D1', 'D2', 'd1', 'd2', 'f1', 'f2', 'L'],
             productParams: [
               {
                 id: 'param1-prod21-cat1',
@@ -799,7 +828,8 @@ export default {
             imageProduct: imageProd22Cat1,
             imageAndSchemesProduct: [imageProd22Cat1, scheme1Prod22Cat1],
             description: 'Утки – специальные фасонные изделия, которые созданы для соединения двух разноуровневых воздуховодов или же когда воздуховоды находятся правее либо левее друг друга.',
-            shortDescriptionType: 'Type10',
+            shortDescriptionType: 'Type1',
+            sequence: ['d1', 'd2', 'h', 'L'],
             productParams: [
               {
                 id: 'param1-prod22-cat1',
@@ -847,7 +877,8 @@ export default {
             imageProduct: imageProd23Cat1,
             imageAndSchemesProduct: [imageProd23Cat1, scheme1Prod23Cat1],
             description: 'Утки – специальные фасонные изделия, которые созданы для соединения двух разноуровневых воздуховодов или же когда воздуховоды находятся правее либо левее друг друга.',
-            shortDescriptionType: 'Type11',
+            shortDescriptionType: 'Type1',
+            sequence: ['d1', 'd2', 'h', 'f', 'L'],
             productParams: [
               {
                 id: 'param1-prod23-cat1',
@@ -904,7 +935,8 @@ export default {
             imageProduct: imageProd24Cat1,
             imageAndSchemesProduct: [imageProd24Cat1, scheme1Prod24Cat1],
             description: 'Хомуты используются при монтаже вентиляционных систем. С их помощью крепят элементы системы к стене или потолку.',
-            shortDescriptionType: 'Type2',
+            shortDescriptionType: 'Type1',
+            sequence: ['d'],
             productParams: [
               {
                 id: 'param1-prod24-cat1',
@@ -934,7 +966,8 @@ export default {
             imageProduct: imageProd1Cat2,
             imageAndSchemesProduct: [imageProd1Cat2, scheme1Prod1Cat2],
             description: 'Дроссель-клапан используется для регулировки расхода приточного и вытяжного воздуха в системах канальной вентиляции и кондиционирования. Управление клапаном осуществляется вручную с помощью ручки.',
-            shortDescriptionType: 'Type2',
+            shortDescriptionType: 'Type1',
+            sequence: ['d'],
             productParams: [
               {
                 id: 'param1-prod1-cat2',
@@ -955,7 +988,8 @@ export default {
             imageProduct: imageProd2Cat2,
             imageAndSchemesProduct: [imageProd2Cat2, scheme1Prod2Cat2],
             description: 'Дроссель-клапан используется для регулировки расхода приточного и вытяжного воздуха в системах канальной вентиляции и кондиционирования. Управление клапаном осуществляется вручную с помощью ручки.',
-            shortDescriptionType: 'Type2',
+            shortDescriptionType: 'Type1',
+            sequence: ['d'],
             productParams: [
               {
                 id: 'param1-prod2-cat2',
@@ -976,7 +1010,8 @@ export default {
             imageProduct: imageProd3Cat2,
             imageAndSchemesProduct: [imageProd3Cat2, scheme1Prod3Cat2],
             description: 'Обратный клапан используется для перекрытия воздуховодов при отключении системы вентиляции, в результате чего предотвращается движение воздуха в обратном направлении.',
-            shortDescriptionType: 'Type2',
+            shortDescriptionType: 'Type1',
+            sequence: ['d'],
             productParams: [
               {
                 id: 'param1-prod3-cat2',
@@ -997,7 +1032,8 @@ export default {
             imageProduct: imageProd4Cat2,
             imageAndSchemesProduct: [imageProd4Cat2, scheme1Prod4Cat2],
             description: 'Зонт крышный используется для защиты наружной части воздуховода от попадания в систему вентиляции атмосферных осадков.',
-            shortDescriptionType: 'Type2',
+            shortDescriptionType: 'Type1',
+            sequence: ['d'],
             productParams: [
               {
                 id: 'param1-prod4-cat2',
@@ -1018,7 +1054,8 @@ export default {
             imageProduct: imageProd5Cat2,
             imageAndSchemesProduct: [imageProd5Cat2, scheme1Prod5Cat2],
             description: 'Дефлектор используется для защиты вентиляционного оборудования от любых атмосферных осадков. Механизм действия этого прибора основан на естественной тяге. Сила ветрв создаёт в цилиндре область особо пониженного давления, которая действует как вытяжная система. Дефлектор препятствует появлению обратной тяги.',
-            shortDescriptionType: 'Type2',
+            shortDescriptionType: 'Type1',
+            sequence: ['d1', 'd2', 'h1', 'h2'],
             productParams: [
               {
                 id: 'param1-prod5-cat2',
@@ -1067,6 +1104,7 @@ export default {
             imageAndSchemesProduct: [imageProd6Cat2, scheme1Prod6Cat2],
             description: 'Шумоглушитель используется для снижения уровня шума, который создаётся электромеханическими агрегатами. Он так же приглушает аэродинамический шум, который может возникать в узловых и потокорегулирующих элементах воздуховодов.',
             shortDescriptionType: 'Type1',
+            sequence: ['d', 'L'],
             productParams: [
               {
                 id: 'param1-prod6-cat2',
@@ -1080,7 +1118,7 @@ export default {
               {
                 id: 'param2-prod6-cat2',
                 name: 'Длина',
-                sym: 'l',
+                sym: 'L',
                 unit: 'мм',
                 minimValue: 'none',
                 maximValue: 'none',
@@ -1096,7 +1134,8 @@ export default {
             imageProduct: imageProd7Cat2,
             imageAndSchemesProduct: [imageProd7Cat2, scheme1Prod7Cat2],
             description: 'Гибкие вставки предназначены для исключения передачи вибрации от вентиляторов или вентиляционных установок к воздуховоду. Представляют собой две жесткие части из оцинкованной стали, соединенные посередине мягким виниловым материалом.',
-            shortDescriptionType: 'Type2',
+            shortDescriptionType: 'Type1',
+            sequence: ['d'],
             productParams: [
               {
                 id: 'param1-prod7-cat2',
@@ -1126,7 +1165,8 @@ export default {
             imageProduct: imageProd1Cat3,
             imageAndSchemesProduct: [imageProd1Cat3, scheme1Prod1Cat3],
             description: 'Прямоугольный воздуховод для вентиляции представляет собой короб из оцинкованной стали. Для изготовления воздуховодов применяется листовая сталь. Чем больше размеры сечения, тем толще должны быть стенки изделия.',
-            shortDescriptionType: 'Type12',
+            shortDescriptionType: 'Type5',
+            sequence: ['a', 'b', 'L'],
             productParams: [
               {
                 id: 'param1-prod1-cat3',
@@ -1165,7 +1205,8 @@ export default {
             imageProduct: imageProd2Cat3,
             imageAndSchemesProduct: [imageProd2Cat3, scheme1Prod2Cat3, scheme2Prod2Cat3],
             description: 'Для соединения двух воздуховодов прямоугольного сечения разных размеров применяется переход прямоугольного сечения. Переход прямоугольного сечения бывает нескольких типов. Центральный – когда оси воздуховодов совпадают, односторонний – когда один из воздуховодов вплотную смещён к одной из сторон и переход прямоугольного сечения со смещением – когда оси воздуховодов не совпадают и при этом один из воздуховодов имеет смещение от одной или двух сторон.',
-            shortDescriptionType: 'Type13',
+            shortDescriptionType: 'Type8',
+            sequence: ['a', 'b', 'c', 'd'],
             productParams: [
               {
                 id: 'param1-prod2-cat3',
@@ -1213,7 +1254,8 @@ export default {
             imageProduct: imageProd18Cat3,
             imageAndSchemesProduct: [imageProd18Cat3, scheme1Prod18Cat3, scheme2Prod18Cat3, scheme3Prod18Cat3],
             description: 'Для соединения двух воздуховодов прямоугольного сечения разных размеров применяется переход прямоугольного сечения. Переход прямоугольного сечения бывает нескольких типов. Центральный – когда оси воздуховодов совпадают, односторонний – когда один из воздуховодов вплотную смещён к одной из сторон и переход прямоугольного сечения со смещением – когда оси воздуховодов не совпадают и при этом один из воздуховодов имеет смещение от одной или двух сторон.',
-            shortDescriptionType: 'Type13',
+            shortDescriptionType: 'Type8',
+            sequence: ['a', 'b', 'c', 'd'],
             productParams: [
               {
                 id: 'param1-prod18-cat3',
@@ -1252,7 +1294,7 @@ export default {
                 decimal: false
               }
             ],
-            productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
+            productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5', 'Type6']
           },
           {
             id: 'prod19-cat3',
@@ -1261,7 +1303,8 @@ export default {
             imageProduct: imageProd19Cat3,
             imageAndSchemesProduct: [imageProd19Cat3, scheme1Prod19Cat3, scheme2Prod19Cat3, scheme3Prod19Cat3],
             description: 'Для соединения двух воздуховодов прямоугольного сечения разных размеров применяется переход прямоугольного сечения. Переход прямоугольного сечения бывает нескольких типов. Центральный – когда оси воздуховодов совпадают, односторонний – когда один из воздуховодов вплотную смещён к одной из сторон и переход прямоугольного сечения со смещением – когда оси воздуховодов не совпадают и при этом один из воздуховодов имеет смещение от одной или двух сторон.',
-            shortDescriptionType: 'Type14',
+            shortDescriptionType: 'Type12',
+            sequence: ['a', 'b', 'c', 'd', 'f', 'e'],
             productParams: [
               {
                 id: 'param1-prod19-cat3',
@@ -1327,7 +1370,8 @@ export default {
             imageProduct: imageProd3Cat3,
             imageAndSchemesProduct: [imageProd3Cat3, scheme1Prod3Cat3, scheme2Prod3Cat3],
             description: 'Для соединения воздуховодов прямоугольного сечения с воздуховодами круглого сечения применяется переход прямоугольного сечения в круг. Переход прямоугольного сечения в круг бывает нескольких типов. Центральный – когда оси воздуховодов совпадают, односторонний – когда воздуховод круглого сечения вплотную смещён к одной из сторон прямоугольного воздуховода и переход со смещением – когда оси воздуховодов не совпадают и при этом воздуховод круглого сечения имеет смещение от одной или двух сторон прямоугольного воздуховода.',
-            shortDescriptionType: 'Type15',
+            shortDescriptionType: 'Type7',
+            sequence: ['a', 'b', 'd'],
             productParams: [
               {
                 id: 'param1-prod3-cat3',
@@ -1366,7 +1410,8 @@ export default {
             imageProduct: imageProd20Cat3,
             imageAndSchemesProduct: [imageProd20Cat3, scheme1Prod20Cat3, scheme2Prod20Cat3, scheme3Prod20Cat3],
             description: 'Для соединения воздуховодов прямоугольного сечения с воздуховодами круглого сечения применяется переход прямоугольного сечения в круг. Переход прямоугольного сечения в круг бывает нескольких типов. Центральный – когда оси воздуховодов совпадают, односторонний – когда воздуховод круглого сечения вплотную смещён к одной из сторон прямоугольного воздуховода и переход со смещением – когда оси воздуховодов не совпадают и при этом воздуховод круглого сечения имеет смещение от одной или двух сторон прямоугольного воздуховода.',
-            shortDescriptionType: 'Type16',
+            shortDescriptionType: 'Type7',
+            sequence: ['a', 'b', 'd'],
             productParams: [
               {
                 id: 'param1-prod20-cat3',
@@ -1396,7 +1441,7 @@ export default {
                 decimal: false
               }
             ],
-            productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
+            productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5', 'Type6']
           },
           {
             id: 'prod21-cat3',
@@ -1405,7 +1450,8 @@ export default {
             imageProduct: imageProd21Cat3,
             imageAndSchemesProduct: [imageProd21Cat3, scheme1Prod21Cat3, scheme2Prod21Cat3, scheme3Prod21Cat3],
             description: 'Для соединения воздуховодов прямоугольного сечения с воздуховодами круглого сечения применяется переход прямоугольного сечения в круг. Переход прямоугольного сечения в круг бывает нескольких типов. Центральный – когда оси воздуховодов совпадают, односторонний – когда воздуховод круглого сечения вплотную смещён к одной из сторон прямоугольного воздуховода и переход со смещением – когда оси воздуховодов не совпадают и при этом воздуховод круглого сечения имеет смещение от одной или двух сторон прямоугольного воздуховода.',
-            shortDescriptionType: 'Type17',
+            shortDescriptionType: 'Type7',
+            sequence: ['a', 'b', 'd', 'f', 'e'],
             productParams: [
               {
                 id: 'param1-prod21-cat3',
@@ -1459,10 +1505,12 @@ export default {
             id: 'prod5-cat3',
             titleProduct: 'Тройник прямоугольного сечения под 90° с круглой врезкой',
             shortTitle: 'Тройник с круглой врезкой (Пр)',
+            angle: '90°',
             imageProduct: imageProd5Cat3,
             imageAndSchemesProduct: [imageProd5Cat3, scheme1Prod5Cat3],
             description: 'Тройник прямоугольного сечения под 90° с круглой врезкой предназначен для разветвления линии воздуховодов (разветвления одного потока воздуха на два или объединения двух потоков в один).',
-            shortDescriptionType: 'Type15',
+            shortDescriptionType: 'Type11',
+            sequence: ['a', 'b', 'd'],
             productParams: [
               {
                 id: 'param1-prod5-cat3',
@@ -1498,10 +1546,12 @@ export default {
             id: 'prod4-cat3',
             titleProduct: 'Тройник прямоугольного сечения под 90°',
             shortTitle: 'Тройник (Пр)',
+            angle: '90°',
             imageProduct: imageProd4Cat3,
             imageAndSchemesProduct: [imageProd4Cat3, scheme1Prod4Cat3],
             description: 'Тройник прямоугольного сечения под 90° предназначен для разветвления линии воздуховодов (разветвления одного потока воздуха на два или объединения двух потоков в один).',
-            shortDescriptionType: 'Type13',
+            shortDescriptionType: 'Type15',
+            sequence: ['a', 'b', 'c', 'd'],
             productParams: [
               {
                 id: 'param1-prod4-cat3',
@@ -1549,7 +1599,8 @@ export default {
             imageProduct: imageProd6Cat3,
             imageAndSchemesProduct: [imageProd6Cat3, scheme1Prod6Cat3, scheme2Prod6Cat3],
             description: 'Тройник прямоугольного сечения «орёл» используется для разветвления вентиляционной системы на два воздуховода с равномерным давлением потока воздуха.',
-            shortDescriptionType: 'Type18',
+            shortDescriptionType: 'Type9',
+            sequence: ['a1', 'c', 'a2', 'c', 'b', 'c'],
             productParams: [
               {
                 id: 'param1-prod6-cat3',
@@ -1597,7 +1648,8 @@ export default {
             imageProduct: imageProd7Cat3,
             imageAndSchemesProduct: [imageProd7Cat3, scheme1Prod7Cat3],
             description: 'Тройник прямоугольного сечения «штаны» используется для разветвления вентиляционной системы с одного большого сечения на два воздуховода меньшего размера.',
-            shortDescriptionType: 'Type18',
+            shortDescriptionType: 'Type16',
+            sequence: ['a1', 'c', 'a2', 'c', 'b', 'c', 'L'],
             productParams: [
               {
                 id: 'param1-prod7-cat3',
@@ -1654,7 +1706,8 @@ export default {
             imageProduct: imageProd8Cat3,
             imageAndSchemesProduct: [imageProd8Cat3, scheme1Prod8Cat3, scheme2Prod8Cat3],
             description: 'Крестовина используется для соединения четырёх воздуховодов одновременно.',
-            shortDescriptionType: 'Type19',
+            shortDescriptionType: 'Type14',
+            sequence: ['a', 'b', 'a1', 'b1', 'a2', 'b2', 'x1', 'x2', 'z1', 'z2', 'L'],
             productParams: [
               {
                 id: 'param1-prod8-cat3',
@@ -1765,7 +1818,8 @@ export default {
             imageProduct: imageProd22Cat3,
             imageAndSchemesProduct: [imageProd22Cat3, scheme1Prod22Cat3, scheme2Prod22Cat3],
             description: 'Крестовина используется для соединения четырёх воздуховодов одновременно.',
-            shortDescriptionType: 'Type20',
+            shortDescriptionType: 'Type10',
+            sequence: ['a', 'b', 'd1', 'd2', 'x1', 'x2', 'z1', 'z2', 'L'],
             productParams: [
               {
                 id: 'param1-prod22-cat3',
@@ -1855,10 +1909,12 @@ export default {
             id: 'prod13-cat3',
             titleProduct: 'Отвод прямоугольного сечения (колено) под 15°',
             shortTitle: 'Отвод (Пр)',
+            angle: '15°',
             imageProduct: imageProd13Cat3,
             imageAndSchemesProduct: [imageProd13Cat3, scheme1Prod13Cat3],
             description: 'Отвод позволяет изменить движение воздуха в определённом направление и под определённым углом без изменения сечения воздуховода.',
-            shortDescriptionType: 'Type21',
+            shortDescriptionType: 'Type6',
+            sequence: ['a', 'b'],
             productParams: [
               {
                 id: 'param1-prod13-cat3',
@@ -1885,10 +1941,12 @@ export default {
             id: 'prod11-cat3',
             titleProduct: 'Отвод прямоугольного сечения (колено) под 30°',
             shortTitle: 'Отвод (Пр)',
+            angle: '30°',
             imageProduct: imageProd11Cat3,
             imageAndSchemesProduct: [imageProd11Cat3, scheme1Prod11Cat3],
             description: 'Отвод позволяет изменить движение воздуха в определённом направление и под определённым углом без изменения сечения воздуховода.',
-            shortDescriptionType: 'Type21',
+            shortDescriptionType: 'Type6',
+            sequence: ['a', 'b'],
             productParams: [
               {
                 id: 'param1-prod11-cat3',
@@ -1915,10 +1973,12 @@ export default {
             id: 'prod10-cat3',
             titleProduct: 'Отвод прямоугольного сечения (колено) под 45°',
             shortTitle: 'Отвод (Пр)',
+            angle: '45°',
             imageProduct: imageProd10Cat3,
             imageAndSchemesProduct: [imageProd10Cat3, scheme1Prod10Cat3],
             description: 'Отвод позволяет изменить движение воздуха в определённом направление и под определённым углом без изменения сечения воздуховода.',
-            shortDescriptionType: 'Type21',
+            shortDescriptionType: 'Type6',
+            sequence: ['a', 'b'],
             productParams: [
               {
                 id: 'param1-prod10-cat3',
@@ -1945,10 +2005,12 @@ export default {
             id: 'prod12-cat3',
             titleProduct: 'Отвод прямоугольного сечения (колено) под 60°',
             shortTitle: 'Отвод (Пр)',
+            angle: '60°',
             imageProduct: imageProd12Cat3,
             imageAndSchemesProduct: [imageProd12Cat3, scheme1Prod12Cat3],
             description: 'Отвод позволяет изменить движение воздуха в определённом направление и под определённым углом без изменения сечения воздуховода.',
-            shortDescriptionType: 'Type21',
+            shortDescriptionType: 'Type6',
+            sequence: ['a', 'b'],
             productParams: [
               {
                 id: 'param1-prod12-cat3',
@@ -1975,10 +2037,12 @@ export default {
             id: 'prod9-cat3',
             titleProduct: 'Отвод прямоугольного сечения (колено) под 90°',
             shortTitle: 'Отвод (Пр)',
+            angle: '90°',
             imageProduct: imageProd9Cat3,
             imageAndSchemesProduct: [imageProd9Cat3, scheme1Prod9Cat3],
             description: 'Отвод позволяет изменить движение воздуха в определённом направление и под определённым углом без изменения сечения воздуховода.',
-            shortDescriptionType: 'Type21',
+            shortDescriptionType: 'Type6',
+            sequence: ['a', 'b'],
             productParams: [
               {
                 id: 'param1-prod9-cat3',
@@ -2008,7 +2072,8 @@ export default {
             imageProduct: imageProd14Cat3,
             imageAndSchemesProduct: [imageProd14Cat3, scheme1Prod14Cat3],
             description: 'Заглушка используется для перекрытия вентиляционного канала в конце ветки, чтобы защитить его от нежелательных элементов, которые могут попасть в воздуховод.',
-            shortDescriptionType: 'Type22',
+            shortDescriptionType: 'Type4',
+            sequence: ['a', 'b'],
             productParams: [
               {
                 id: 'param1-prod14-cat3',
@@ -2038,7 +2103,8 @@ export default {
             imageProduct: imageProd15Cat3,
             imageAndSchemesProduct: [imageProd15Cat3, scheme1Prod15Cat3],
             description: 'Врезка предназначена для вмонтирования в одну из сторон воздуховода прямоугольного сечения.',
-            shortDescriptionType: 'Type22',
+            shortDescriptionType: 'Type4',
+            sequence: ['a', 'b'],
             productParams: [
               {
                 id: 'param1-prod15-cat3',
@@ -2068,7 +2134,8 @@ export default {
             imageProduct: imageProd16Cat3,
             imageAndSchemesProduct: [imageProd16Cat3, scheme1Prod16Cat3, scheme2Prod16Cat3],
             description: 'Врезка-седло прямоугольного сечения – это фасонный элемент вентиляционной системы, используемый для присоединения отвода к магистральному воздуховоду круглого сечения.',
-            shortDescriptionType: 'Type15',
+            shortDescriptionType: 'Type7',
+            sequence: ['a', 'b', 'd'],
             productParams: [
               {
                 id: 'param1-prod16-cat3',
@@ -2107,7 +2174,8 @@ export default {
             imageProduct: imageProd17Cat3,
             imageAndSchemesProduct: [imageProd17Cat3, scheme1Prod17Cat3],
             description: 'Адаптер представляет собой прямоугольный короб заглушенный с одной стороны и установленной по одной из сторон врезкой. Адаптеры изготавливаются с разным количеством врезок.',
-            shortDescriptionType: 'Type23',
+            shortDescriptionType: 'Type10',
+            sequence: ['a', 'b', 'd', 'h'],
             productParams: [
               {
                 id: 'param1-prod17-cat3',
@@ -2146,7 +2214,7 @@ export default {
                 decimal: false
               }
             ],
-            productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5']
+            productSelectParams: ['Type1', 'Type2', 'Type3', 'Type5', 'Type7']
           },
           {
             id: 'prod23-cat3',
@@ -2155,7 +2223,8 @@ export default {
             imageProduct: imageProd23Cat3,
             imageAndSchemesProduct: [imageProd23Cat3, scheme1Prod23Cat3, scheme2Prod23Cat3],
             description: 'Утки – специальные фасонные изделия, которые созданы для соединения двух разноуровневых воздуховодов или же когда воздуховоды находятся правее либо левее друг друга.',
-            shortDescriptionType: 'Type24',
+            shortDescriptionType: 'Type13',
+            sequence: ['a1', 'b', 'a2', 'b', 'h', 'L'],
             productParams: [
               {
                 id: 'param1-prod23-cat3',
@@ -2212,7 +2281,8 @@ export default {
             imageProduct: imageProd24Cat3,
             imageAndSchemesProduct: [imageProd24Cat3, scheme1Prod24Cat3, scheme2Prod24Cat3],
             description: 'Утки – специальные фасонные изделия, которые созданы для соединения двух разноуровневых воздуховодов или же когда воздуховоды находятся правее либо левее друг друга.',
-            shortDescriptionType: 'Type25',
+            shortDescriptionType: 'Type13',
+            sequence: ['a1', 'b1', 'a2', 'b2', 'h', 'f', 'L'],
             productParams: [
               {
                 id: 'param1-prod24-cat3',
@@ -2235,7 +2305,16 @@ export default {
               {
                 id: 'param3-prod24-cat3',
                 name: 'Сторона',
-                sym: 'b',
+                sym: 'b1',
+                unit: 'мм',
+                minimValue: 100,
+                maximValue: 'none',
+                decimal: false
+              },
+              {
+                id: 'param7-prod24-cat3',
+                name: 'Сторона',
+                sym: 'b2',
                 unit: 'мм',
                 minimValue: 100,
                 maximValue: 'none',
@@ -2287,7 +2366,8 @@ export default {
             imageProduct: imageProd1Cat4,
             imageAndSchemesProduct: [imageProd1Cat4, scheme1Prod1Cat4],
             description: 'Дроссель-клапан используется для регулировки расхода приточного и вытяжного воздуха в системах канальной вентиляции и кондиционирования. Управление клапаном осуществляется вручную с помощью ручки.',
-            shortDescriptionType: 'Type12',
+            shortDescriptionType: 'Type5',
+            sequence: ['a', 'b', 'L'],
             productParams: [
               {
                 id: 'param1-prod1-cat4',
@@ -2326,7 +2406,8 @@ export default {
             imageProduct: imageProd2Cat4,
             imageAndSchemesProduct: [imageProd2Cat4, scheme1Prod2Cat4],
             description: 'Зонт крышный используется для защиты наружной части воздуховода от попадания в систему вентиляции атмосферных осадков.',
-            shortDescriptionType: 'Type22',
+            shortDescriptionType: 'Type4',
+            sequence: ['a', 'b'],
             productParams: [
               {
                 id: 'param1-prod2-cat4',
@@ -2356,7 +2437,8 @@ export default {
             imageProduct: imageProd3Cat4,
             imageAndSchemesProduct: [imageProd3Cat4, scheme1Prod3Cat4],
             description: 'Шумоглушитель используется для снижения уровня шума, который создаётся электромеханическими агрегатами. Он так же приглушает аэродинамический шум, который может возникать в узловых и потокорегулирующих элементах воздуховодов.',
-            shortDescriptionType: 'Type12',
+            shortDescriptionType: 'Type5',
+            sequence: ['a', 'b', 'L'],
             productParams: [
               {
                 id: 'param1-prod3-cat4',
@@ -2404,12 +2486,13 @@ export default {
             imageProduct: imageProd1Cat5,
             imageAndSchemesProduct: [imageProd1Cat5],
             description: 'Шина монтажная используется для изготовления фланцев и является ребром жесткости при соединении в воздуховодах прямоугольного сечения и фасонных изделий прямоугольной формы.',
-            shortDescriptionType: 'Type26',
+            shortDescriptionType: 'Type1',
+            sequence: ['L'],
             productParams: [
               {
                 id: 'param1-prod1-cat5',
                 name: 'Длина',
-                sym: 'l',
+                sym: 'L',
                 unit: 'мм',
                 minimValue: 'none',
                 maximValue: 'none',
@@ -2425,12 +2508,13 @@ export default {
             imageProduct: imageProd2Cat5,
             imageAndSchemesProduct: [imageProd2Cat5],
             description: 'Шина монтажная используется для изготовления фланцев и является ребром жесткости при соединении в воздуховодах прямоугольного сечения и фасонных изделий прямоугольной формы.',
-            shortDescriptionType: 'Type26',
+            shortDescriptionType: 'Type1',
+            sequence: ['L'],
             productParams: [
               {
                 id: 'param1-prod2-cat5',
                 name: 'Длина',
-                sym: 'l',
+                sym: 'L',
                 unit: 'мм',
                 minimValue: 'none',
                 maximValue: 'none',
@@ -2446,7 +2530,8 @@ export default {
             imageProduct: imageProd3Cat5,
             imageAndSchemesProduct: [imageProd3Cat5, scheme1Prod3Cat5],
             description: 'Фланец применяется для соединения воздуховодов и фасонных изделий прямоугольного сечения между собой.',
-            shortDescriptionType: 'Type22',
+            shortDescriptionType: 'Type4',
+            sequence: ['a', 'b'],
             productParams: [
               {
                 id: 'param1-prod3-cat5',
@@ -2476,7 +2561,8 @@ export default {
             imageProduct: imageProd4Cat5,
             imageAndSchemesProduct: [imageProd4Cat5, scheme1Prod4Cat5],
             description: 'Фланец применяется для соединения воздуховодов и фасонных изделий прямоугольного сечения между собой.',
-            shortDescriptionType: 'Type22',
+            shortDescriptionType: 'Type4',
+            sequence: ['a', 'b'],
             productParams: [
               {
                 id: 'param1-prod4-cat5',
@@ -2506,7 +2592,8 @@ export default {
             imageProduct: imageProd5Cat5,
             imageAndSchemesProduct: [imageProd5Cat5],
             description: 'Уголок соединительный используется для соединения шин между собой при изготовлении фланцев.',
-            shortDescriptionType: '',
+            shortDescriptionType: 'Type1',
+            sequence: [],
             productParams: [],
             productSelectParams: []
           },
@@ -2517,7 +2604,8 @@ export default {
             imageProduct: imageProd6Cat5,
             imageAndSchemesProduct: [imageProd6Cat5],
             description: 'Уголок соединительный используется для соединения шин между собой при изготовлении фланцев.',
-            shortDescriptionType: '',
+            shortDescriptionType: 'Type1',
+            sequence: [],
             productParams: [],
             productSelectParams: []
           }
@@ -2558,14 +2646,27 @@ export default {
       {
         idSelectField: 'field-type5',
         type: 'Type5',
-        name: 'Наличие кожуха',
+        name: 'Изготовить окожушку',
         arraySelectItems: ['Да', 'Нет'],
         value: 'Нет'
+      },
+      {
+        idSelectField: 'field-type6',
+        type: 'Type6',
+        name: 'Вариант исполнения',
+        arraySelectItems: ['Тип А', 'Тип Б', 'Тип В', 'Тип Г'],
+        value: 'Тип А'
+      },
+      {
+        idSelectField: 'field-type7',
+        type: 'Type7',
+        name: 'Вариант исполнения',
+        arraySelectItems: ['Тип А', 'Тип Б'],
+        value: 'Тип А'
       }
     ]
   },
   getters: {
-    // getProducts: (state) => state.products,
     getCatalogInfo: (state) => state.catalog,
     getSelectFieldByType: (state) => {
       return selectType => {

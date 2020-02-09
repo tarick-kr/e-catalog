@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Home from '../views/Home'
 
 Vue.use(VueRouter)
 
@@ -7,58 +8,55 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
+    component: Home
   },
   {
     path: '/catalog',
     name: 'catalog',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Catalog.vue')
+    component: () => import(/* webpackChunkName: "catalog" */ '../views/Catalog.vue')
   },
   {
     path: '/cart',
     name: 'cart',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Cart.vue')
+    component: () => import(/* webpackChunkName: "cart" */ '../views/Cart.vue')
   },
   {
     path: '/order',
     name: 'order',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Order.vue')
+    component: () => import(/* webpackChunkName: "order" */ '../views/Order.vue')
   },
   {
     path: '/preview',
     name: 'preview',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Preview.vue')
+    component: () => import(/* webpackChunkName: "preview" */ '../views/Preview.vue')
   },
   {
     path: '/catalog/product-detail/:id',
     props: true,
     name: 'productDetail',
-    component: () => import(/* webpackChunkName: "about" */ '../views/ProductDetail.vue')
+    component: () => import(/* webpackChunkName: "productDetail" */ '../views/ProductDetail.vue')
   },
   {
     path: '/catalog/products-in-category/:id',
     props: true,
     name: 'productsInCategory',
-    component: () => import(/* webpackChunkName: "about" */ '../views/ProductsInCategory.vue')
+    component: () => import(/* webpackChunkName: "productsInCategory" */ '../views/ProductsInCategory.vue')
   },
   {
     path: '/cart/product-detail/:id',
     props: true,
     name: 'productInCartDetail',
-    component: () => import(/* webpackChunkName: "about" */ '../views/ProductDetail.vue')
-  },
-  {
-    path: '/error-404',
-    name: 'error-404',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Error404.vue')
+    component: () => import(/* webpackChunkName: "productInCartDetail" */ '../views/ProductDetail.vue')
   },
   {
     path: '/order-send',
-    name: 'order-send',
-    component: () => import(/* webpackChunkName: "about" */ '../views/OrderSend.vue')
+    name: 'orderSend',
+    component: () => import(/* webpackChunkName: "orderSend" */ '../views/OrderSend.vue')
+  },
+  {
+    path: '*',
+    name: 'error404',
+    component: () => import(/* webpackChunkName: "error404" */ '../views/Error404.vue')
   }
 ]
 

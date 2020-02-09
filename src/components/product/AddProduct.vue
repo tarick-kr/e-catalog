@@ -237,6 +237,7 @@ export default {
         shortDescriptionType: this.addedShortDescriptionType,
         productParams: this.addedProductParams,
         productSelectParams: this.addedProductSelectParams,
+        typesSelects: this.product.productSelectParams,
         quantity: this.addedProductQuantity
       }
       this.$store.dispatch('ADD_PRODUCT_TO_CART', product)
