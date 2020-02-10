@@ -253,7 +253,7 @@ export default {
             idSelectField: 'field-type5',
             name: 'Изготовить окожушку',
             type: 'Type5',
-            value: 'Нет'
+            value: 'Да'
           },
           {
             arraySelectItems: ['Да', 'Нет'],
