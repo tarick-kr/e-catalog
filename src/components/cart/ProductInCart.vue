@@ -99,9 +99,6 @@ export default {
     emptySelectParam () {
       return this.itemInCart.productSelectParams.length === 0
     },
-    descriptionProductSelectParam () {
-      return this.itemInCartDescriptionSelectParams.join(' / ')
-    },
     disabledBtnDecrement () {
       return !this.itemInCartQuantity || this.itemInCartQuantity === 1
     }

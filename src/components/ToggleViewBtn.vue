@@ -26,7 +26,7 @@ export default {
   name: 'ToggleViewBtn',
   props: {
     viewCard: {
-      type: Boolean,
+      type: Number,
       required: true
     }
   },

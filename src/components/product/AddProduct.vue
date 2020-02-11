@@ -235,6 +235,7 @@ export default {
         imagesProduct: this.addedProductImages,
         descriptionProduct: this.addedProductDescription,
         shortDescriptionType: this.addedShortDescriptionType,
+        sequence: this.product.sequence,
         productParams: this.addedProductParams,
         productSelectParams: this.addedProductSelectParams,
         typesSelects: this.product.productSelectParams,

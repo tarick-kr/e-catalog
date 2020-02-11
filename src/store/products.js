@@ -2633,14 +2633,14 @@ export default {
         idSelectField: 'field-type3',
         type: 'Type3',
         name: 'Тип соединения',
-        arraySelectItems: ['Фланец №20', 'Фланец №30', 'Нет'],
-        value: 'Фланец №20'
+        arraySelectItems: ['Фланец R20', 'Фланец R30', 'Нет'],
+        value: 'Фланец R20'
       },
       {
         idSelectField: 'field-type4',
         type: 'Type4',
         name: 'Тип соединения',
-        arraySelectItems: ['Фланец №20', 'Фланец №30', 'Нет'],
+        arraySelectItems: ['Фланец R20', 'Фланец R30', 'Нет'],
         value: 'Нет'
       },
       {

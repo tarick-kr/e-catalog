@@ -13,10 +13,6 @@ export default {
   },
   data () {
     return {
-      itemInCartProductParams: [],
-      itemInCartProductSelectParams: [],
-      itemInCartDescriptionParam: [],
-      itemInCartDescriptionSelectParams: [],
       symbolDescription: ''
     }
   },
@@ -255,7 +251,11 @@ export default {
       } else {
         arrayDescriptionParam = []
       }
-      shortDescriptionParam = arrayDescriptionParam.join('')
+      if (arrayDescriptionParam.length > 0) {
+        shortDescriptionParam = arrayDescriptionParam.join('')
+      } else {
+        shortDescriptionParam = ''
+      }
       return shortDescriptionParam
     },
     initSelectParamValue (arrayParams, paramName) {
