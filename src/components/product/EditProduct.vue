@@ -254,6 +254,11 @@ export default {
           this.reset()
         }
       }
+    },
+    'cartItem.quantity': {
+      handler (val) {
+        this.editedProductQuantity = val
+      }
     }
   }
 }
