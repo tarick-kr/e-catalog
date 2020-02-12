@@ -9,8 +9,7 @@ import scheme3Prod18Cat3 from '../assets/catalog/vozduhovody_pryam_sech/products
 import imageProd2Cat5 from '../assets/catalog/prochee/products/shina_R30/shyna-R30.jpg'
 import imageProd5Cat5 from '../assets/catalog/prochee/products/ugolok_R20/ugolok-R20.jpg'
 import imageProd10Cat1 from '../assets/catalog/vozduhovody_krug_sech/products/troynik_krug_45/troynik-krug-45.jpg'
-import scheme1Prod10Cat1
-  from '../assets/catalog/vozduhovody_krug_sech/products/troynik_krug_45/troynik-krug-45-shem.jpg'
+import scheme1Prod10Cat1 from '../assets/catalog/vozduhovody_krug_sech/products/troynik_krug_45/troynik-krug-45-shem.jpg'
 
 export default {
   state: {
@@ -371,44 +370,43 @@ export default {
             type: 'Type5',
             value: 'Нет'
           }
-        ]
+        ],
+        quantity: 3
       }
     ]
   },
   mutations: {
     DECREMENT (state, id) {
-      // for (let i = 0; i < state.cartItemList.length; i++) {
-      //   if (state.cartItemList[i].id === id) {
-      //     if (state.cartItemList[i].quantity > 1) {
-      //       state.cartItemList[i].quantity--
-      //     } else {
-      //       state.cartItemList[i].quantity = 1
-      //     }
-      //   }
-      // }
+      console.log(id)
+      for (let i = 0; i < state.productsInCart.length; i++) {
+        if (state.productsInCart[i].id === id) {
+          if (state.productsInCart[i].quantity > 1) {
+            state.productsInCart[i].quantity--
+          } else {
+            state.productsInCart[i].quantity = 1
+          }
+        }
+      }
     },
     INCREMENT (state, id) {
-      // for (let i = 0; i < state.cartItemList.length; i++) {
-      //   if (state.cartItemList[i].id === id) {
-      //     if (state.cartItemList[i].quantity < 100) {
-      //       state.cartItemList[i].quantity++
-      //     } else {
-      //       state.cartItemList[i].quantity = 100
-      //     }
-      //   }
-      // }
+      console.log(id)
+      for (let i = 0; i < state.productsInCart.length; i++) {
+        if (state.productsInCart[i].id === id) {
+          state.productsInCart[i].quantity++
+        }
+      }
     },
     REMOVE_PRODUCT (state, id) {
-      // let index = state.cartItemList.findIndex(product => product.id === id)
-      // state.cartItemList.splice(index, 1)
+      let index = state.productsInCart.findIndex(product => product.id === id)
+      state.productsInCart.splice(index, 1)
     },
-    SAVE_CHANGES (state, { id, editedParams, editedQuantity, editedSelectParams }) {
-      // const updateProduct = state.cartItemList.find(product => {
-      //   return product.id === id
-      // })
-      // updateProduct.quantity = editedQuantity
-      // updateProduct.productParams = editedParams
-      // updateProduct.productSelectParams = editedSelectParams
+    SAVE_CHANGES (state, { id, editedProductParams, editedProductSelectParams, editedProductQuantity }) {
+      const updateProduct = state.productsInCart.find(product => {
+        return product.id === id
+      })
+      updateProduct.productParams = editedProductParams
+      updateProduct.productSelectParams = editedProductSelectParams
+      updateProduct.quantity = editedProductQuantity
     },
     ADD_PRODUCT_TO_CART (state, payload) {
       state.productsInCart.push(payload)
@@ -434,6 +432,11 @@ export default {
   getters: {
     getProductsInCart: (state) => {
       return state.productsInCart
+    },
+    getProductById: (state) => {
+      return (productId) => {
+        return state.productsInCart.find(product => product.id === productId)
+      }
     },
     getCountProductsInCart: (state) => {
       return state.productsInCart.length

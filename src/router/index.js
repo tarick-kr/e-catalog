@@ -43,10 +43,10 @@ const routes = [
     component: () => import(/* webpackChunkName: "productsInCategory" */ '../views/ProductsInCategory.vue')
   },
   {
-    path: '/cart/product-detail/:id',
+    path: '/cart/detail-product/:id',
     props: true,
     name: 'productInCartDetail',
-    component: () => import(/* webpackChunkName: "productInCartDetail" */ '../views/ProductDetail.vue')
+    component: () => import(/* webpackChunkName: "productInCartDetail" */ '../views/ProductInCartDetail.vue')
   },
   {
     path: '/order-send',

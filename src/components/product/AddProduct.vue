@@ -39,7 +39,7 @@
                 :key="addedProductParam.id"
               >
                 <input-param
-                  ref="inputParam"
+                  ref="inputAddParam"
                   :index="index"
                   :data="addedProductParam"
                   @onUpdate="updateParam($event)"
@@ -69,7 +69,7 @@
             <v-row>
               <v-col cols="12" sm="4">
                 <input-quantity
-                  ref="inputQuantity"
+                  ref="inputAddQuantity"
                   @onUpdate="updateQuantity($event)"
                 />
               </v-col>
@@ -104,9 +104,9 @@
 </template>
 
 <script>
-import InputParam from '../inputs/InputParam'
-import InputSelect from '../inputs/InputSelect'
-import InputQuantity from '../inputs/InputQuantity'
+import InputParam from '../inputsAdd/InputAddParam'
+import InputSelect from '../inputsAdd/InputAddSelect'
+import InputQuantity from '../inputsAdd/InputAddQuantity'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -121,6 +121,11 @@ export default {
       required: true
     }
   },
+  components: {
+    InputParam,
+    InputSelect,
+    InputQuantity
+  },
   data () {
     return {
       dialog: false,
@@ -131,18 +136,15 @@ export default {
       addedProductImages: [],
       addedProductDescription: '',
       addedShortDescriptionType: '',
+      addedSequence: [],
       addedProductParams: [],
       addedProductParamsValid: [],
       addedProductParamsCount: 0,
       addedProductSelectParams: [],
+      addedTypesSelects: [],
       addedProductQuantity: '',
       addedProductQuantityValid: ''
     }
-  },
-  components: {
-    InputParam,
-    InputSelect,
-    InputQuantity
   },
   mounted () {
     this.initValue()
@@ -166,6 +168,7 @@ export default {
       this.addedProductImages = this.product.imageAndSchemesProduct
       this.addedProductDescription = this.product.description
       this.addedShortDescriptionType = this.product.shortDescriptionType
+      this.addedSequence = this.product.sequence
 
       for (let i = 0; i < this.product.productParams.length; i++) {
         let itemObj = this.product.productParams[i]
@@ -184,6 +187,7 @@ export default {
         this.addedProductSelectParams.push(itemSelectObjNew)
       }
 
+      this.addedTypesSelects = this.product.productSelectParams
       this.addedProductQuantityValid = false
     },
     updateParam (payload) {
@@ -204,7 +208,6 @@ export default {
       this.$set(payload.productSelect, payload.prop, payload.newValue)
     },
     updateQuantity (payload) {
-      console.log(payload)
       this.addedProductQuantity = Number(payload.newValue)
       this.addedProductQuantityValid = payload.valid
     },
@@ -212,18 +215,15 @@ export default {
       this.addedProductParams = []
       this.addedProductSelectParams = []
       this.addedProductQuantity = ''
-      this.dialog = false
     },
     resetInputs () {
-      for (let i = 0; i < this.$refs.inputParam.length; i++) {
-        this.$refs.inputParam[i].reset()
+      for (let i = 0; i < this.$refs.inputAddParam.length; i++) {
+        this.$refs.inputAddParam[i].reset()
       }
-      this.$refs.inputQuantity.reset()
+      this.$refs.inputAddQuantity.reset()
     },
     onCancel () {
-      this.resetForm()
-      this.initValue()
-      this.resetInputs()
+      this.dialog = false
     },
     addToCart () {
       const randomId = this.strRand()
@@ -235,14 +235,17 @@ export default {
         imagesProduct: this.addedProductImages,
         descriptionProduct: this.addedProductDescription,
         shortDescriptionType: this.addedShortDescriptionType,
-        sequence: this.product.sequence,
+        sequence: this.addedSequence,
         productParams: this.addedProductParams,
         productSelectParams: this.addedProductSelectParams,
-        typesSelects: this.product.productSelectParams,
+        typesSelects: this.addedTypesSelects,
         quantity: this.addedProductQuantity
       }
       this.$store.dispatch('ADD_PRODUCT_TO_CART', product)
 
+      this.dialog = false
+    },
+    reset () {
       this.resetForm()
       this.initValue()
       this.resetInputs()
@@ -269,6 +272,15 @@ export default {
     },
     allParamsCompleted () {
       return this.inputsParamCompleted && this.inputQuantityCompleted
+    }
+  },
+  watch: {
+    'dialog': {
+      handler (val) {
+        if (val === false) {
+          this.reset()
+        }
+      }
     }
   }
 }

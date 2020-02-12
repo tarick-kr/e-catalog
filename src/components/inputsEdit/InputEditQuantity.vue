@@ -15,7 +15,7 @@
 import { required, minValue, numeric } from 'vuelidate/lib/validators'
 
 export default {
-  name: 'InputQuantity',
+  name: 'InputEditQuantity',
   data () {
     return {
       label: 'Количество, шт',
@@ -23,8 +23,13 @@ export default {
     }
   },
   props: {
+    data: {
+      type: Number,
+      required: true
+    }
   },
   mounted () {
+    this.quantityValue = this.data
   },
   validations () {
     return {
@@ -48,7 +53,7 @@ export default {
     },
     reset () {
       this.$nextTick(() => { this.$v.$reset() })
-      this.quantityValue = ''
+      this.quantityValue = this.data
     }
   },
   computed: {
@@ -62,6 +67,13 @@ export default {
     },
     validValue () {
       return this.quantityErrors.length === 0
+    }
+  },
+  watch: {
+    'data': {
+      handler (val) {
+        this.quantityValue = val
+      }
     }
   }
 }

@@ -1,5 +1,7 @@
 <template>
-  <v-list-item-subtitle>{{ this.symbolDescription }}</v-list-item-subtitle>
+  <div>
+    <v-list-item-subtitle>{{ this.symbolDescription }}</v-list-item-subtitle>
+  </div>
 </template>
 
 <script>

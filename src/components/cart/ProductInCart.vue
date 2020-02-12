@@ -86,13 +86,13 @@ export default {
   },
   methods: {
     decrement () {
-      this.$store.dispatch('DECREMENT', this.product.id)
+      this.$store.dispatch('DECREMENT', this.itemInCart.id)
     },
     increment () {
-      this.$store.dispatch('INCREMENT', this.product.id)
+      this.$store.dispatch('INCREMENT', this.itemInCart.id)
     },
     remove () {
-      this.$store.dispatch('REMOVE_PRODUCT', this.product.id)
+      this.$store.dispatch('REMOVE_PRODUCT', this.itemInCart.id)
     }
   },
   computed: {
@@ -101,6 +101,13 @@ export default {
     },
     disabledBtnDecrement () {
       return !this.itemInCartQuantity || this.itemInCartQuantity === 1
+    }
+  },
+  watch: {
+    'itemInCart.quantity': {
+      handler (val) {
+        this.itemInCartQuantity = val
+      }
     }
   }
 }
