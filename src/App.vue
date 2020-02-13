@@ -69,12 +69,12 @@
       <v-content>
         <router-view/>
       </v-content>
-      <v-footer color="primary" app>
-        <div class="white--text mx-auto">
-          <span class="mr-2">Created by web-STar</span>
-          <span>&copy; 2020</span>
-        </div>
-      </v-footer>
+<!--      <v-footer color="primary" app>-->
+<!--        <div class="white&#45;&#45;text mx-auto">-->
+<!--          <span class="mr-2">Created by web-STar</span>-->
+<!--          <span>&copy; 2020</span>-->
+<!--        </div>-->
+<!--      </v-footer>-->
     </v-app>
   </div>
 </template>

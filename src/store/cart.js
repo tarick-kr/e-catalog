@@ -377,7 +377,6 @@ export default {
   },
   mutations: {
     DECREMENT (state, id) {
-      console.log(id)
       for (let i = 0; i < state.productsInCart.length; i++) {
         if (state.productsInCart[i].id === id) {
           if (state.productsInCart[i].quantity > 1) {
@@ -389,7 +388,6 @@ export default {
       }
     },
     INCREMENT (state, id) {
-      console.log(id)
       for (let i = 0; i < state.productsInCart.length; i++) {
         if (state.productsInCart[i].id === id) {
           state.productsInCart[i].quantity++

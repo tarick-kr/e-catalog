@@ -12,6 +12,14 @@
     <list-products-in-cart
       :productsInCart="this.getProductsInCart"
     ></list-products-in-cart>
+    <v-divider class="mb-2"/>
+    <v-container class="py-0 mb-2">
+      <v-row justify="center">
+        <v-btn text tile color="primary" to="/order">
+          Оформить заказ
+        </v-btn>
+      </v-row>
+    </v-container>
   </v-container>
 </template>
 
