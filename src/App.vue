@@ -32,21 +32,17 @@
         </v-list>
       </v-navigation-drawer>
       <v-app-bar app color="primary" dark>
-        <router-link to="/home" tag="span" style="cursor:pointer">
+        <router-link to="/" tag="span" style="cursor:pointer">
           <v-toolbar-title>
             <div class="site-name-wrapper">
-              <span class="site-name-title">TOP КЛИМАТ</span>
-              <span class="site-name-order">заказ</span>
-              <span class="site-name-l">L</span>
-              <span class="site-name-ine">ine</span>
-              <span class="site-name-on">on</span>
+              <span class="site-name-title font-weight-bold display-1">LOGO</span>
             </div>
           </v-toolbar-title>
         </router-link>
         <v-spacer />
         <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up"/>
         <v-toolbar-items class="hidden-xs-only">
-          <v-btn text to="/home">
+          <v-btn text to="/">
             <div class="btn-wrapper" >
               <v-icon size="30" class="ma-1">mdi-home</v-icon>
               <span class="top-bar_item--title">Главная</span>
@@ -69,12 +65,12 @@
       <v-content>
         <router-view/>
       </v-content>
-<!--      <v-footer color="primary" app>-->
-<!--        <div class="white&#45;&#45;text mx-auto">-->
+      <v-footer color="primary" app>
+        <div class="white--text mx-auto">
 <!--          <span class="mr-2">Created by web-STar</span>-->
-<!--          <span>&copy; 2020</span>-->
-<!--        </div>-->
-<!--      </v-footer>-->
+          <span>&copy; 2020</span>
+        </div>
+      </v-footer>
     </v-app>
   </div>
 </template>
@@ -93,39 +89,39 @@ export default {
   .btn-wrapper
     display: flex
     flex-direction: column
-  .v-toolbar__title
-    .site-name-wrapper
-      position: relative
-      span.site-name-title
-        font-size: 0.7rem
-        font-weight: bold
-        font-style: italic
-        position: absolute
-        top: 1rem
-        left: 0
-        letter-spacing: 0.05rem
-        color: yellow
-      span.site-name-on
-        font-weight: bold
-        font-size: 1.1rem
-        letter-spacing: 0.2rem
-        position: absolute
-        top: 0.6rem
-        right: 0
-      span.site-name-l
-        font-weight: bold
-        font-size: 2.8rem
-        font-style: italic
-        color: yellow
-        letter-spacing: 0.3rem
-      span.site-name-ine
-        letter-spacing: 0.2rem
-        color: yellow
-        font-style: italic
-      span.site-name-order
-        font-size: 1.1rem
-        font-weight: bold
-        letter-spacing: 0.35rem
+  /*.v-toolbar__title*/
+  /*  .site-name-wrapper*/
+  /*    position: relative*/
+  /*    span.site-name-title*/
+  /*      font-size: 0.7rem*/
+  /*      font-weight: bold*/
+  /*      font-style: italic*/
+  /*      position: absolute*/
+  /*      top: 1rem*/
+  /*      left: 0*/
+  /*      letter-spacing: 0.05rem*/
+  /*      color: yellow*/
+  /*    span.site-name-on*/
+  /*      font-weight: bold*/
+  /*      font-size: 1.1rem*/
+  /*      letter-spacing: 0.2rem*/
+  /*      position: absolute*/
+  /*      top: 0.6rem*/
+  /*      right: 0*/
+  /*    span.site-name-l*/
+  /*      font-weight: bold*/
+  /*      font-size: 2.8rem*/
+  /*      font-style: italic*/
+  /*      color: yellow*/
+  /*      letter-spacing: 0.3rem*/
+  /*    span.site-name-ine*/
+  /*      letter-spacing: 0.2rem*/
+  /*      color: yellow*/
+  /*      font-style: italic*/
+  /*    span.site-name-order*/
+  /*      font-size: 1.1rem*/
+  /*      font-weight: bold*/
+  /*      letter-spacing: 0.35rem*/
 
   .top-bar_item--title
     text-align: center

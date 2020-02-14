@@ -5,8 +5,10 @@
       <h2 style="text-align: center">Это не поздно исправить...</h2>
     </div>
     <v-divider class="mb-6"/>
-    <v-card-actions class="py-4">
-      <v-btn block large dark color="light-blue darken-1" class="title">Перейти куда-то...</v-btn>
-    </v-card-actions>
+    <v-row justify="center">
+      <v-btn text tile color="primary" to="/catalog">
+        Перейти в каталог
+      </v-btn>
+    </v-row>
   </v-container>
 </template>

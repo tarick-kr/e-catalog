@@ -6,7 +6,7 @@
       </v-row>
     </v-container>
     <v-divider class="mb-2"/>
-    <v-container>
+    <v-container ref="order">
       <v-card max-width="960px" class="mx-auto">
         <v-container class="pb-0">
           <v-row justify="center" class="pb-3">
@@ -70,8 +70,8 @@
       </v-btn>
     </v-row>
     <v-row justify="end">
-      <v-btn text tile color="primary" to="" @click="onSavePDFAndSend">
-        Сохранить в PDF файл и отправить
+      <v-btn text tile color="primary" to="" @click="onSend">
+        Отправить
       </v-btn>
     </v-row>
   </v-container>
@@ -79,6 +79,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+// import * as JsPDF from 'jspdf'
 import SymbolDescription from '../components/cart/SymbolDescription'
 
 export default {
@@ -88,10 +89,18 @@ export default {
   },
   methods: {
     onSavePDF () {
-      console.log('onSavePDF')
+      // const doc = new JsPDF()
+      // console.log(this.$refs)
+      // console.log(this.$refs.order)
+      // console.log(this.$refs.order.$el)
+      // const html = this.$refs.order.innerHTML
+      // doc.text('html', 15, 15, {
+      //   width: 600
+      // })
+      // doc.save('Order-' + this.getDataClient.currentDate + '.pdf')
     },
-    onSavePDFAndSend () {
-      console.log('onSavePDFAndSend')
+    onSend () {
+      // console.log('onSavePDFAndSend')
     }
   },
   computed: {

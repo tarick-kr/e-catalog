@@ -11,7 +11,6 @@
         <v-list-item-title class="title mb-1">{{ itemInCart.titleProduct }}</v-list-item-title>
         <symbol-description :itemInCart="this.itemInCart"></symbol-description>
         <v-divider v-show="!emptySelectParam"/>
-        <v-list-item-subtitle>{{  }}</v-list-item-subtitle>
       </v-list-item-content>
       <v-list-item-avatar tile size="120" v-if="$vuetify.breakpoint.smAndUp">
         <v-img :src="itemInCart.imageProduct"/>

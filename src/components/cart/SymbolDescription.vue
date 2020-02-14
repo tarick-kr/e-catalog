@@ -493,8 +493,17 @@ export default {
       let shortDescriptionSelectParam = this.makeShortDescriptionSelectParam(typesSelects, selectParams)
       this.symbolDescription = shortTitle + shortDescriptionParam + shortDescriptionSelectParam
     }
+  },
+  watch: {
+    'itemInCart': {
+      handler (val) {
+        this.makeSymbolDescription(val)
+      },
+      deep: true
+    }
   }
 }
+
 </script>
 
 <style scoped>
