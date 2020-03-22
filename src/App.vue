@@ -50,7 +50,7 @@
           </v-btn>
           <v-btn text to="/catalog">
             <div class="btn-wrapper" >
-              <v-icon size="30" class="ma-1">mdi-library-books</v-icon>
+              <v-icon size="30" class="ma-1">mdi-note-multiple</v-icon>
               <span class="top-bar_item--title">Каталог</span>
             </div>
           </v-btn>
@@ -71,17 +71,49 @@
           <span>&copy; 2020</span>
         </div>
       </v-footer>
+      <template v-if="error">
+        <v-snackbar
+          :multi-line="true"
+          :timeout="5000"
+          color="error"
+          @input="closeError"
+          value="true"
+        >
+          {{ error }}
+          <v-btn
+            dark
+            text
+            @click.native="closeError"
+          >
+            Close
+          </v-btn>
+        </v-snackbar>
+      </template>
     </v-app>
   </div>
 </template>
 
 <script>
-
+import { mapGetters } from 'vuex'
 export default {
   name: 'App',
   data: () => ({
     drawer: false
-  })
+  }),
+  created () {
+    this.$store.dispatch('FETCH_PRODUCTS')
+  },
+  methods: {
+    closeError () {
+      this.$store.dispatch('CLEAR_ERROR')
+    }
+  },
+  computed: {
+    ...mapGetters([
+      'error',
+      'loading'
+    ])
+  }
 }
 </script>
 

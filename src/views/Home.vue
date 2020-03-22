@@ -18,7 +18,16 @@
 
 <script>
 export default {
-  name: 'home'
+  name: 'home',
+  data () {
+    return {
+      products: []
+    }
+  },
+  created () {
+    // this.products = this.$store.state.db.collection('products')
+    // console.log(this.$store.state.db)
+  }
 }
 </script>
 

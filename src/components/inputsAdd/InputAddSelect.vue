@@ -1,9 +1,9 @@
 <template>
   <v-select
     :label="this.label"
-    :value="this.data.value"
+    :value="this.payload.value"
     required
-    :items="this.data.arraySelectItems"
+    :items="this.payload.arraySelectItems"
     @input="onChangeValue($event)"
     outlined
     dense
@@ -19,7 +19,7 @@ export default {
     }
   },
   props: {
-    data: {
+    payload: {
       type: Object,
       required: true
     },
@@ -33,18 +33,16 @@ export default {
   },
   methods: {
     initValue () {
-      this.label = this.data.sym ? this.data.name + ' ' + this.data.sym + ', ' + this.data.unit : this.data.name
+      this.label = this.payload.sym ? this.payload.name + ' ' + this.payload.sym + ', ' + this.payload.unit : this.payload.name
     },
     onChangeValue (e) {
       this.$emit('onUpdate', {
         index: this.index,
-        productSelect: this.data,
+        productSelect: this.payload,
         prop: 'value',
         newValue: e
       })
     }
-  },
-  computed: {
   }
 }
 </script>

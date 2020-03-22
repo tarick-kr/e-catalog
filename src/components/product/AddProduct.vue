@@ -41,7 +41,7 @@
                 <input-param
                   ref="inputAddParam"
                   :index="index"
-                  :data="addedProductParam"
+                  :payload="addedProductParam"
                   @onUpdate="updateParam($event)"
                 />
               </v-col>
@@ -57,7 +57,7 @@
                 v-for="(itemSelect, index) in this.addedProductSelectParams"
                 :key="index">
                 <input-select
-                  :data="itemSelect"
+                  :payload="itemSelect"
                   :index="index"
                   @onUpdate="updateSelect($event)"
                 />

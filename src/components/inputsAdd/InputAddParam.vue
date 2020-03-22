@@ -28,7 +28,7 @@ export default {
     }
   },
   props: {
-    data: {
+    payload: {
       type: [Object, Number],
       required: true
     },
@@ -38,19 +38,19 @@ export default {
     }
   },
   mounted () {
-    this.label = this.data.name + ' ' + this.data.sym + ',' + ' ' + this.data.unit
+    this.label = this.payload.name + ' ' + this.payload.sym + ',' + ' ' + this.payload.unit
 
-    if (this.data.minimValue !== 'none' && this.data.maximValue === 'none') {
-      // целые числа с ограничением минимального значения
-      this.hintText = 'Минимальное значение параметра - ' + this.data.minimValue + this.data.unit
+    if (this.payload.minimValue !== 'none' && this.payload.maximValue === 'none') {
+      // числа с ограничением минимального значения
+      this.hintText = 'Минимальное значение параметра - ' + this.payload.minimValue + this.payload.unit
       this.hasMinimValue = true
       this.hasMaximValue = false
-    } else if (this.data.minimValue === 'none' && this.data.maximValue !== 'none') {
-      this.hintText = 'Максимальное значение параметра - ' + this.data.maximValue + this.data.unit
+    } else if (this.payload.minimValue === 'none' && this.payload.maximValue !== 'none') {
+      this.hintText = 'Максимальное значение параметра - ' + this.payload.maximValue + this.payload.unit
       this.hasMinimValue = false
       this.hasMaximValue = true
-    } else if (this.data.minimValue !== 'none' && this.data.maximValue !== 'none') {
-      this.hintText = 'Значение параметра может быть от ' + this.data.maximValue + this.data.unit + ' ' + 'до ' + this.data.maximValue + this.data.unit
+    } else if (this.payload.minimValue !== 'none' && this.payload.maximValue !== 'none') {
+      this.hintText = 'Значение параметра может быть от ' + this.payload.minimValue + this.payload.unit + ' ' + 'до ' + this.payload.maximValue + this.payload.unit
       this.hasMinimValue = true
       this.hasMaximValue = true
     } else {
@@ -60,25 +60,25 @@ export default {
     }
   },
   validations () {
-    if (this.hasMinimValue && !this.hasMaximValue && this.data.decimal === false) {
+    if (this.hasMinimValue && !this.hasMaximValue && !this.payload.decimal) {
       // целые числа с ограничением минимального значения
       return {
         paramValue: {
           required,
-          minValue: minValue(this.data.minimValue),
+          minValue: minValue(this.payload.minimValue),
           integer
         }
       }
-    } else if (this.hasMinimValue && !this.hasMaximValue && this.data.decimal === true) {
+    } else if (this.hasMinimValue && !this.hasMaximValue && this.payload.decimal) {
       // десятичные числа с ограничением минимального значения
       return {
         paramValue: {
           required,
-          minValue: minValue(this.data.minimValue),
+          minValue: minValue(this.payload.minimValue),
           decimal
         }
       }
-    } else if (!this.hasMinimValue && !this.hasMaximValue && this.data.decimal === false) {
+    } else if (!this.hasMinimValue && !this.hasMaximValue && !this.payload.decimal) {
       // целые числа без ограничения значения
       return {
         paramValue: {
@@ -86,36 +86,36 @@ export default {
           integer
         }
       }
-    } else if (this.hasMinimValue && this.hasMaximValue && this.data.decimal === false) {
+    } else if (this.hasMinimValue && this.hasMaximValue && !this.payload.decimal) {
       // целые числа с ограничением минимального и максимального значения
       return {
         paramValue: {
           required,
           integer,
-          minValue: minValue(this.data.minimValue),
-          maxValue: maxValue(this.data.maximValue)
+          minValue: minValue(this.payload.minimValue),
+          maxValue: maxValue(this.payload.maximValue)
         }
       }
-    } else if (this.hasMinimValue && this.hasMaximValue && this.data.decimal === true) {
+    } else if (this.hasMinimValue && this.hasMaximValue && this.payload.decimal) {
       // десятичные числа с ограничением минимального и максимального значения
       return {
         paramValue: {
           required,
           decimal,
-          minValue: minValue(this.data.minimValue),
-          maxValue: maxValue(this.data.maximValue)
+          minValue: minValue(this.payload.minimValue),
+          maxValue: maxValue(this.payload.maximValue)
         }
       }
-    } else if (!this.hasMinimValue && this.hasMaximValue && this.data.decimal === false) {
+    } else if (!this.hasMinimValue && this.hasMaximValue && !this.payload.decimal) {
       // целые числа с ограничением максимального значения
       return {
         paramValue: {
           required,
           integer,
-          maxValue: maxValue(this.data.maximValue)
+          maxValue: maxValue(this.payload.maximValue)
         }
       }
-    } else if (!this.hasMinimValue && !this.hasMaximValue && this.data.decimal === true) {
+    } else if (!this.hasMinimValue && !this.hasMaximValue && this.payload.decimal) {
       // десятичные числа без ограничения значения
       return {
         paramValue: {
@@ -129,7 +129,7 @@ export default {
         paramValue: {
           required,
           decimal,
-          maxValue: maxValue(this.data.maximValue)
+          maxValue: maxValue(this.payload.maximValue)
         }
       }
     }
@@ -142,7 +142,7 @@ export default {
     onChangeValue (e) {
       this.$emit('onUpdate', {
         index: this.index,
-        productParam: this.data,
+        productParam: this.payload,
         propValue: 'value',
         newValue: e,
         propValid: 'valid',
@@ -159,46 +159,46 @@ export default {
       const errors = []
       if (!this.$v.paramValue.$dirty) return errors
 
-      if (this.hasMinimValue && !this.hasMaximValue && this.data.decimal === false) {
+      if (this.hasMinimValue && !this.hasMaximValue && !this.payload.decimal) {
         // целые числа с ограничением минимального значения
         !this.$v.paramValue.required && errors.push('Поле не может быть пустым')
         !this.$v.paramValue.integer && errors.push('Введите корректное значение')
-        !this.$v.paramValue.minValue && errors.push('Значение не может быть меньше ' + this.data.minimValue)
-      } else if (this.hasMinimValue && !this.hasMaximValue && this.data.decimal === true) {
+        !this.$v.paramValue.minValue && errors.push('Значение не может быть меньше ' + this.payload.minimValue)
+      } else if (this.hasMinimValue && !this.hasMaximValue && this.payload.decimal) {
         // десятичные числа с ограничением минимального значения
         !this.$v.paramValue.required && errors.push('Поле не может быть пустым')
         !this.$v.paramValue.decimal && errors.push('Введите корректное значение')
-        !this.$v.paramValue.minValue && errors.push('Значение не может быть меньше ' + this.data.minimValue)
-      } else if (!this.hasMinimValue && !this.hasMaximValue && this.data.decimal === false) {
+        !this.$v.paramValue.minValue && errors.push('Значение не может быть меньше ' + this.payload.minimValue)
+      } else if (!this.hasMinimValue && !this.hasMaximValue && !this.payload.decimal) {
         // целые числа без ограничения значения
         !this.$v.paramValue.required && errors.push('Поле не может быть пустым')
         !this.$v.paramValue.integer && errors.push('Введите корректное значение')
-      } else if (this.hasMinimValue && this.hasMaximValue && this.data.decimal === false) {
+      } else if (this.hasMinimValue && this.hasMaximValue && !this.payload.decimal) {
         // целые числа с ограничением минимального и максимального значения
         !this.$v.paramValue.required && errors.push('Поле не может быть пустым')
         !this.$v.paramValue.integer && errors.push('Введите корректное значение')
-        !this.$v.paramValue.minValue && errors.push('Значение не может быть меньше ' + this.data.minimValue)
-        !this.$v.paramValue.maxValue && errors.push('Значение не может быть больше ' + this.data.maximValue)
-      } else if (this.hasMinimValue && this.hasMaximValue && this.data.decimal === true) {
+        !this.$v.paramValue.minValue && errors.push('Значение не может быть меньше ' + this.payload.minimValue)
+        !this.$v.paramValue.maxValue && errors.push('Значение не может быть больше ' + this.payload.maximValue)
+      } else if (this.hasMinimValue && this.hasMaximValue && this.payload.decimal) {
         // десятичные числа с ограничением минимального и максимального значения
         !this.$v.paramValue.required && errors.push('Поле не может быть пустым')
         !this.$v.paramValue.decimal && errors.push('Введите корректное значение')
-        !this.$v.paramValue.minValue && errors.push('Значение не может быть меньше ' + this.data.minimValue)
-        !this.$v.paramValue.maxValue && errors.push('Значение не может быть больше ' + this.data.maximValue)
-      } else if (!this.hasMinimValue && this.hasMaximValue && this.data.decimal === false) {
+        !this.$v.paramValue.minValue && errors.push('Значение не может быть меньше ' + this.payload.minimValue)
+        !this.$v.paramValue.maxValue && errors.push('Значение не может быть больше ' + this.payload.maximValue)
+      } else if (!this.hasMinimValue && this.hasMaximValue && !this.payload.decimal) {
         // целые числа с ограничением максимального значения
         !this.$v.paramValue.required && errors.push('Поле не может быть пустым')
         !this.$v.paramValue.integer && errors.push('Введите корректное значение')
-        !this.$v.paramValue.maxValue && errors.push('Значение не может быть больше ' + this.data.maximValue)
-      } else if (!this.hasMinimValue && !this.hasMaximValue && this.data.decimal === true) {
+        !this.$v.paramValue.maxValue && errors.push('Значение не может быть больше ' + this.payload.maximValue)
+      } else if (!this.hasMinimValue && !this.hasMaximValue && this.payload.decimal) {
         // десятичные числа без ограничения значения
         !this.$v.paramValue.required && errors.push('Поле не может быть пустым')
         !this.$v.paramValue.decimal && errors.push('Введите корректное значение')
       } else {
-        // десятичные числа с ограничением максимального значения (this.data.decimal === true)
+        // десятичные числа с ограничением максимального значения
         !this.$v.paramValue.required && errors.push('Поле не может быть пустым')
         !this.$v.paramValue.decimal && errors.push('Введите корректное значение')
-        !this.$v.paramValue.maxValue && errors.push('Значение не может быть больше ' + this.data.maximValue)
+        !this.$v.paramValue.maxValue && errors.push('Значение не может быть больше ' + this.payload.maximValue)
       }
       return errors
     },

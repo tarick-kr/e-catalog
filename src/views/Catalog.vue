@@ -35,7 +35,8 @@ export default {
   computed: {
     ...mapGetters([
       'getListCategories',
-      'getViewType'
+      'getViewType',
+      'loading'
     ])
   },
   watch: {

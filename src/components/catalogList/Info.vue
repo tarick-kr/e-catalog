@@ -55,6 +55,10 @@ export default {
       }
       return categoryId
     }
+  },
+  mounted () {
+  },
+  methods: {
   }
 }
 </script>
