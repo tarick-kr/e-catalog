@@ -27,6 +27,10 @@
             <span class="subtitle-1 font-weight-bold mr-3">тел:</span>
             <span class="subtitle-1" style="color: rgba(0, 0, 0, 0.6)">{{ this.getDataClient.phone }}</span>
           </div>
+          <div>
+            <span class="subtitle-1 font-weight-bold mr-3">E-mail:</span>
+            <span class="subtitle-1" style="color: rgba(0, 0, 0, 0.6)">{{ this.getDataClient.email }}</span>
+          </div>
           <v-divider class="mb-2 mt-2"/>
           <div class="text-center">
             <span class="subtitle-1 font-weight-bold mr-3">Спецификация</span>
@@ -65,11 +69,6 @@
       <v-btn text tile color="primary" to="/order">
         Назад
       </v-btn>
-      <v-btn text tile color="primary" to="" @click="onSavePDF">
-        Сохранить в PDF файл
-      </v-btn>
-    </v-row>
-    <v-row justify="end">
       <v-btn text tile color="primary" to="" @click="onSend">
         Отправить
       </v-btn>
@@ -79,7 +78,6 @@
 
 <script>
 import { mapGetters } from 'vuex'
-// import * as JsPDF from 'jspdf'
 import SymbolDescription from '../components/cart/SymbolDescription'
 
 export default {
@@ -88,19 +86,13 @@ export default {
     SymbolDescription
   },
   methods: {
-    onSavePDF () {
-      // const doc = new JsPDF()
-      // console.log(this.$refs)
-      // console.log(this.$refs.order)
-      // console.log(this.$refs.order.$el)
-      // const html = this.$refs.order.innerHTML
-      // doc.text('html', 15, 15, {
-      //   width: 600
-      // })
-      // doc.save('Order-' + this.getDataClient.currentDate + '.pdf')
-    },
     onSend () {
-      // console.log('onSavePDFAndSend')
+      const order = {
+        dataClient: this.getDataClient,
+        productsInOrder: this.getProductsInCart
+      }
+      this.$store.dispatch('SEND_ORDER', order)
+      this.$router.push('/order-send')
     }
   },
   computed: {

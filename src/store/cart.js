@@ -408,6 +408,9 @@ export default {
     },
     ADD_PRODUCT_TO_CART (state, payload) {
       state.productsInCart.push(payload)
+    },
+    CLEAR_CART (state) {
+      state.productsInCart = []
     }
   },
   actions: {
@@ -425,6 +428,9 @@ export default {
     },
     ADD_PRODUCT_TO_CART ({ commit }, payload) {
       commit('ADD_PRODUCT_TO_CART', payload)
+    },
+    CLEAR_CART ({ commit }) {
+      commit('CLEAR_CART')
     }
   },
   getters: {

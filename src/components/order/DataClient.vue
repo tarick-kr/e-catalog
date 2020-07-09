@@ -11,7 +11,6 @@
       ></v-text-field>
       <v-text-field
         label="Фамилия"
-        required
         v-model="lastName"
       ></v-text-field>
       <v-text-field
@@ -22,12 +21,20 @@
         @blur="$v.phone.$touch()"
         :error-messages="phoneErrors"
       ></v-text-field>
+      <v-text-field
+        label="E-mail"
+        required
+        v-model="email"
+        @input="$v.email.$touch()"
+        @blur="$v.email.$touch()"
+        :error-messages="emailErrors"
+      ></v-text-field>
     </v-form>
   </v-container>
 </template>
 
 <script>
-import { minLength, numeric, required } from 'vuelidate/lib/validators'
+import { minLength, numeric, required, email } from 'vuelidate/lib/validators'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -37,7 +44,8 @@ export default {
       currentDate: '',
       firstName: '',
       lastName: '',
-      phone: ''
+      phone: '',
+      email: ''
     }
   },
   mounted () {
@@ -45,6 +53,7 @@ export default {
     this.firstName = this.getDataClient.firstName
     this.lastName = this.getDataClient.lastName
     this.phone = this.getDataClient.phone
+    this.email = this.getDataClient.email
   },
   validations () {
     return {
@@ -55,6 +64,10 @@ export default {
       phone: {
         required,
         numeric
+      },
+      email: {
+        required,
+        email
       }
     }
   },
@@ -68,7 +81,8 @@ export default {
       let firstName = this.firstName
       let lastName = this.lastName
       let phone = this.phone
-      this.$store.dispatch('SAVE_DATA_CLIENT', { currentDate, firstName, lastName, phone })
+      let email = this.email
+      this.$store.dispatch('SAVE_DATA_CLIENT', { currentDate, firstName, lastName, phone, email })
     }
   },
   computed: {
@@ -87,6 +101,13 @@ export default {
       if (!this.$v.phone.$dirty) return errors
       !this.$v.phone.required && errors.push('Поле не может быть пустым')
       !this.$v.phone.numeric && errors.push('Здесь могут быть только из цифры')
+      return errors
+    },
+    emailErrors () {
+      const errors = []
+      if (!this.$v.email.$dirty) return errors
+      !this.$v.email.required && errors.push('Поле не может быть пустым')
+      !this.$v.email.email && errors.push('Введите корректный E-mail')
       return errors
     },
     formCompleted () {

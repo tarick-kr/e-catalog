@@ -2731,6 +2731,7 @@ export default {
           categoryId: state.products[i].id
         })
       }
+      categoryNames.sort((a, b) => a.categoryId > b.categoryId ? 1 : -1)
       return categoryNames
     },
     getInfoCategoryByCategoryId: (state) => {
@@ -2756,6 +2757,7 @@ export default {
             productId: productsInCategory[i].id
           })
         }
+        productsNames.sort((a, b) => a.productTitle > b.productTitle ? 1 : -1)
         return productsNames
       }
     },
@@ -2772,6 +2774,7 @@ export default {
             productDescription: productsInCategory[i].description
           })
         }
+        productsCards.sort((a, b) => a.productTitle > b.productTitle ? 1 : -1)
         return productsCards
       }
     },

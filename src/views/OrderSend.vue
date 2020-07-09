@@ -1,5 +1,8 @@
 <template>
-  <div></div>
+  <div>
+    <div>Ваш заказ отправлен.</div>
+    <div>Проверьте вашу почту</div>
+  </div>
 </template>
 
 <script>
