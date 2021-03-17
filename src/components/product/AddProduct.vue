@@ -85,7 +85,7 @@
             small
             @click="onCancel"
           >Закрыть
-            <v-icon right size="21">close</v-icon>
+            <v-icon right size="21">mdi-close</v-icon>
           </v-btn>
           <v-btn
             color="blue darken-1"

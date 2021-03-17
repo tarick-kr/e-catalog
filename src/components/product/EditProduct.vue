@@ -4,7 +4,7 @@
       <template v-slot:activator="{ on }">
         <v-btn class="my-2" color="success" small dark v-on="on">
           изменить
-          <v-icon size="18" right>edit</v-icon>
+          <v-icon size="18" right>mdi-pencil</v-icon>
         </v-btn>
       </template>
       <v-card>
@@ -85,7 +85,7 @@
               small
               @click="onCancel"
             >Закрыть
-              <v-icon right size="21">close</v-icon>
+              <v-icon right size="21">mdi-close</v-icon>
             </v-btn>
             <v-btn
               color="blue darken-1"

@@ -30,7 +30,7 @@
               :disabled="disabledBtnDecrement"
               @click="decrement"
             >
-              <v-icon>remove</v-icon>
+              <v-icon>mdi-minus</v-icon>
             </v-btn>
             <span class="mx-sm-5">{{ this.itemInCartQuantity }} шт</span>
             <v-btn
@@ -41,7 +41,7 @@
               outlined
               @click="increment"
             >
-              <v-icon>add</v-icon>
+              <v-icon>mdi-plus</v-icon>
             </v-btn>
           </div>
         </v-col>
@@ -52,7 +52,7 @@
       <edit-product :cartItem="this.itemInCart"/>
       <v-btn class="my-2" color="red accent-4" outlined small @click="remove">
         удалить
-        <v-icon size="18" right>delete_forever</v-icon>
+        <v-icon size="18" right>mdi-delete-forever</v-icon>
       </v-btn>
     </v-card-actions>
   </v-card>
