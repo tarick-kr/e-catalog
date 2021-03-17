@@ -1,4 +1,4 @@
-# top-on-line
+# example e-catalog
 ## https://top-on-line.web.app/
 
 ## Project setup
